@@ -1,4 +1,4 @@
-import { personalInfo, skills, experience, projects, certifications, education } from '../data/content.js';
+import { personalInfo, skills, experience, projects, certifications, education, publications, recommendations } from '../data/content.js';
 
 // --- Theme Toggle ---
 const themeToggleBtn = document.getElementById('theme-toggle');
@@ -169,6 +169,54 @@ function renderProjects() {
     });
 }
 
+function renderPublications() {
+    const container = document.getElementById('publications-grid');
+    if (!container) return;
+
+    publications.forEach((pub, i) => {
+        const div = document.createElement('div');
+        div.className = 'publication-card fade-up';
+        div.style.transitionDelay = `${i * 0.1}s`;
+        div.innerHTML = `
+            <h3 class="publication-title">${pub.title}</h3>
+            <div class="publication-journal">${pub.journal}</div>
+            <p class="publication-desc">${pub.description}</p>
+            <a href="${pub.link}" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Read Publication</a>
+        `;
+        container.appendChild(div);
+    });
+}
+
+
+
+function renderRecommendations() {
+    const container = document.getElementById('recommendations-grid');
+    if (!container) return;
+
+    recommendations.forEach((rec, i) => {
+        const div = document.createElement('div');
+        div.className = 'recommendation-card fade-up';
+        div.style.transitionDelay = `${i * 0.1}s`;
+        div.innerHTML = `
+            <div class="rec-header">
+                <img src="${rec.image}" alt="${rec.name}" class="rec-avatar">
+                <div>
+                    <h4 class="rec-name">
+                        <a href="${rec.linkedin}" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+                            ${rec.name}
+                        </a>
+                    </h4>
+                    <span class="rec-role">${rec.role} at ${rec.company}</span>
+                </div>
+            </div>
+            <p class="rec-text">"${rec.text}"</p>
+        `;
+        container.appendChild(div);
+    });
+}
+
+
+
 function renderContact() {
     const container = document.getElementById('contact-content');
     if (!container) return;
@@ -177,8 +225,11 @@ function renderContact() {
         const a = document.createElement('a');
         a.href = social.url;
         a.className = 'social-link fade-up';
-        a.target = "_blank";
-        a.rel = "noopener";
+        // Only open in new tab for non-mailto links
+        if (!social.url.startsWith('mailto:')) {
+            a.target = "_blank";
+            a.rel = "noopener";
+        }
         a.style.transitionDelay = `${i * 0.1}s`;
         a.innerHTML = `
             ${social.icon}
@@ -195,6 +246,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderExperience();
     renderEducation();
     renderProjects();
+    renderPublications();
+    renderRecommendations();
     renderContact();
 
     document.getElementById('year').textContent = new Date().getFullYear();

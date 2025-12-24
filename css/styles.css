@@ -406,17 +406,33 @@ p {
 .projects-grid,
 .cert-grid,
 .skills-grid,
+.projects-grid,
+.cert-grid,
+.skills-grid,
 .education-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 30px;
 }
 
+.publications-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+
 /* Unified Card Style - V5 (Similar to Certs) */
 .project-card,
 .cert-card,
 .education-card,
-.skill-category-card {
+.project-card,
+.publication-card,
+.cert-card,
+.education-card,
+.skill-category-card,
+.recommendation-card,
+.post-card {
     background: var(--bg-surface);
     padding: 32px;
     border-radius: 16px;
@@ -430,7 +446,13 @@ p {
 .project-card:hover,
 .cert-card:hover,
 .education-card:hover,
-.skill-category-card:hover {
+.project-card:hover,
+.publication-card:hover,
+.cert-card:hover,
+.education-card:hover,
+.skill-category-card:hover,
+.recommendation-card:hover,
+.post-card:hover {
     transform: translateY(-5px);
     background: var(--bg-surface-hover);
     border-color: var(--accent);
@@ -461,6 +483,114 @@ p {
     background: var(--bg-body);
     border: 1px solid var(--border);
     color: var(--text-secondary);
+}
+
+.publication-title {
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+}
+
+.publication-journal {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.publication-desc {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+
+
+/* Recommendations */
+.rec-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.rec-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.rec-name {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.rec-role {
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+}
+
+.rec-text {
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Recent Posts */
+.post-image-container {
+    height: 180px;
+    margin: -32px -32px 24px -32px;
+    overflow: hidden;
+    border-radius: 16px 16px 0 0;
+}
+
+.post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.post-card:hover .post-image {
+    transform: scale(1.05);
+}
+
+.post-date {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.post-title {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.post-summary {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.btn-text {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: auto;
+}
+
+.btn-text:hover {
+    color: var(--accent-dark);
 }
 
 /* V5: Skills Redesign (Structured Cards like Certs) */
