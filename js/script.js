@@ -91,6 +91,85 @@ function attachGlowEffect() {
     });
 }
 
+function setActiveIndicator(dots, activeIndex) {
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === activeIndex);
+        dot.setAttribute('aria-pressed', String(index === activeIndex));
+    });
+}
+
+function getOrCreateIndicatorContainer(scroller, className) {
+    if (!scroller?.parentElement) return null;
+
+    let container = scroller.parentElement.querySelector(`.${className}`);
+    if (!container) {
+        container = document.createElement('div');
+        container.className = `carousel-indicators mobile-carousel-indicators ${className}`;
+        scroller.insertAdjacentElement('afterend', container);
+    }
+
+    container.innerHTML = '';
+    return container;
+}
+
+function setupMobileScrollIndicators({ scroller, items, className, onActiveChange }) {
+    const slides = Array.from(items || []);
+    if (!scroller) return null;
+
+    const existingContainer = scroller.parentElement?.querySelector(`.${className}`);
+    if (slides.length <= 1) {
+        existingContainer?.remove();
+        return null;
+    }
+
+    const indicatorsContainer = getOrCreateIndicatorContainer(scroller, className);
+    if (!indicatorsContainer) return null;
+
+    slides.forEach((slide, index) => {
+        slide.dataset.index = String(index);
+    });
+
+    const dots = slides.map((_, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `indicator-dot${index === 0 ? ' active' : ''}`;
+        dot.dataset.index = index;
+        dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+        dot.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
+        indicatorsContainer.appendChild(dot);
+        return dot;
+    });
+
+    const setActive = (index) => {
+        setActiveIndicator(dots, index);
+        if (typeof onActiveChange === 'function') {
+            onActiveChange(index);
+        }
+    };
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            slides[index]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+            setActive(index);
+        });
+    });
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting || entry.intersectionRatio < 0.65) return;
+                const index = Number(entry.target.dataset.index);
+                if (Number.isNaN(index)) return;
+                setActive(index);
+            });
+        }, { root: scroller, threshold: [0.65, 0.85] });
+
+        slides.forEach((slide) => observer.observe(slide));
+    }
+
+    return { indicatorsContainer, dots, setActive };
+}
+
 // --- Render Functions ---
 
 function renderAbout() {
@@ -102,6 +181,7 @@ function renderAbout() {
 function renderCertifications() {
     const container = document.getElementById('cert-grid');
     if (!container) return;
+    container.innerHTML = '';
 
     certifications.forEach((cert, i) => {
         const div = document.createElement('div');
@@ -123,13 +203,24 @@ function renderCertifications() {
         `;
         container.appendChild(div);
     });
+
+    setupMobileScrollIndicators({
+        scroller: container,
+        items: container.querySelectorAll('.cert-card'),
+        className: 'cert-mobile-indicators'
+    });
 }
 
 function renderSkills() {
     const container = document.getElementById('skills-grid');
+    const mobileShell = document.getElementById('skills-mobile-shell');
     if (!container) return;
+    container.innerHTML = '';
+    if (mobileShell) mobileShell.innerHTML = '';
 
-    Object.entries(skills).forEach(([category, list], i) => {
+    const skillEntries = Object.entries(skills);
+
+    skillEntries.forEach(([category, list], i) => {
         const div = document.createElement('div');
         div.className = 'card skill-category-card fade-up';
         div.style.transitionDelay = `${i * 0.1}s`;
@@ -143,11 +234,93 @@ function renderSkills() {
         `;
         container.appendChild(div);
     });
+
+    if (!mobileShell) return;
+
+    const pills = document.createElement('div');
+    pills.className = 'skills-pills fade-up';
+    pills.setAttribute('role', 'tablist');
+    pills.setAttribute('aria-label', 'Technical expertise categories');
+
+    const track = document.createElement('div');
+    track.className = 'skills-mobile-track fade-up';
+
+    skillEntries.forEach(([category, list], i) => {
+        const pill = document.createElement('button');
+        pill.type = 'button';
+        pill.className = `skills-pill${i === 0 ? ' active' : ''}`;
+        pill.dataset.index = i;
+        pill.setAttribute('role', 'tab');
+        pill.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+        pill.textContent = category;
+        pills.appendChild(pill);
+
+        const slide = document.createElement('article');
+        slide.className = 'skills-mobile-card card fade-up';
+        slide.dataset.index = i;
+        slide.setAttribute('role', 'tabpanel');
+        slide.innerHTML = `
+            <div class="skills-mobile-card-head">
+                <span class="skills-mobile-chip">${category}</span>
+            </div>
+            <div class="skill-tags">${list.map(skill => `<span class="tag">${skill}</span>`).join('')}</div>
+        `;
+        track.appendChild(slide);
+    });
+
+    mobileShell.appendChild(pills);
+    mobileShell.appendChild(track);
+
+    const pillButtons = pills.querySelectorAll('.skills-pill');
+    const slides = track.querySelectorAll('.skills-mobile-card');
+
+    const setActiveSkill = (index) => {
+        pillButtons.forEach((button, buttonIndex) => {
+            const isActive = buttonIndex === index;
+            button.classList.toggle('active', isActive);
+            button.setAttribute('aria-selected', String(isActive));
+        });
+    };
+
+    pillButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const index = Number(button.dataset.index);
+            const targetSlide = slides[index];
+            if (!targetSlide) return;
+            targetSlide.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+            setActiveSkill(index);
+        });
+    });
+
+    setupMobileScrollIndicators({
+        scroller: track,
+        items: slides,
+        className: 'skills-mobile-indicators',
+        onActiveChange: setActiveSkill
+    });
+}
+
+function buildExperienceSummary(item) {
+    const summaryParts = [];
+
+    if (item.description) {
+        summaryParts.push(item.description);
+    }
+
+    if (Array.isArray(item.achievements) && item.achievements.length > 0) {
+        const limit = item.description ? 1 : 2;
+        summaryParts.push(item.achievements.slice(0, limit).join(' '));
+    }
+
+    return summaryParts.join(' ').trim();
 }
 
 function renderExperience() {
     const container = document.getElementById('experience-timeline');
+    const mobileContainer = document.getElementById('mobile-experience-timeline');
     if (!container) return;
+    container.innerHTML = '';
+    if (mobileContainer) mobileContainer.innerHTML = '';
 
     experience.forEach((job, i) => {
         const div = document.createElement('div');
@@ -188,11 +361,56 @@ function renderExperience() {
         `;
         container.appendChild(div);
     });
+
+    if (!mobileContainer) return;
+
+    const mobileEntries = [];
+
+    experience.forEach((job) => {
+        mobileEntries.push({
+            role: job.role,
+            company: job.company,
+            period: job.period,
+            summary: buildExperienceSummary(job)
+        });
+
+        if (Array.isArray(job.subRoles)) {
+            job.subRoles.forEach((subRole) => {
+                mobileEntries.push({
+                    role: subRole.role,
+                    company: job.company,
+                    period: subRole.period,
+                    summary: buildExperienceSummary(subRole)
+                });
+            });
+        }
+    });
+
+    mobileEntries.forEach((entry, i) => {
+        const article = document.createElement('article');
+        article.className = 'mobile-exp-item fade-up';
+        article.style.transitionDelay = `${Math.min(i * 0.08, 0.4)}s`;
+        article.innerHTML = `
+            <span class="mobile-exp-marker" aria-hidden="true"></span>
+            <div class="mobile-exp-card">
+                <div class="mobile-exp-top">
+                    <div>
+                        <h3 class="mobile-exp-role">${entry.role}</h3>
+                        <div class="mobile-exp-company">${entry.company}</div>
+                    </div>
+                    <div class="mobile-exp-period">${entry.period}</div>
+                </div>
+                <p class="mobile-exp-summary">${entry.summary}</p>
+            </div>
+        `;
+        mobileContainer.appendChild(article);
+    });
 }
 
 function renderProjects() {
     const container = document.getElementById('projects-grid');
     if (!container) return;
+    container.innerHTML = '';
 
     projects.forEach((proj, i) => {
         const div = document.createElement('div');
@@ -206,6 +424,12 @@ function renderProjects() {
             <p class="project-desc">${proj.description}</p>
         `;
         container.appendChild(div);
+    });
+
+    setupMobileScrollIndicators({
+        scroller: container,
+        items: container.querySelectorAll('.project-card'),
+        className: 'projects-mobile-indicators'
     });
 }
 
@@ -234,10 +458,11 @@ function renderEducation() {
 function renderPublications() {
     const container = document.getElementById('publications-grid');
     if (!container) return;
+    container.innerHTML = '';
 
     publications.forEach((pub, i) => {
         const div = document.createElement('div');
-        div.className = 'card fade-up';
+        div.className = 'card publication-card fade-up';
         div.style.transitionDelay = `${i * 0.1}s`;
         div.innerHTML = `
             <h3 class="project-title">${pub.title}</h3>
@@ -250,12 +475,21 @@ function renderPublications() {
         `;
         container.appendChild(div);
     });
+
+    setupMobileScrollIndicators({
+        scroller: container,
+        items: container.querySelectorAll('.publication-card'),
+        className: 'publications-mobile-indicators'
+    });
 }
 
 function renderRecommendations() {
     const track = document.getElementById('recommendations-track');
+    const viewport = document.querySelector('#recommendations .carousel-viewport');
     const indicatorsContainer = document.getElementById('rec-indicators');
     if (!track) return;
+    track.innerHTML = '';
+    if (indicatorsContainer) indicatorsContainer.innerHTML = '';
 
     recommendations.forEach((rec, i) => {
         const div = document.createElement('div');
@@ -277,23 +511,27 @@ function renderRecommendations() {
             </div>
         `;
         track.appendChild(div);
-
-        // Indicator
-        const dot = document.createElement('div');
-        dot.className = `indicator-dot ${i === 0 ? 'active' : ''}`;
-        dot.dataset.index = i;
-        if (indicatorsContainer) indicatorsContainer.appendChild(dot);
     });
 
     // Carousel Logic
     let currentIndex = 0;
-    const items = track.querySelectorAll('.carousel-item');
-    const dots = indicatorsContainer ? indicatorsContainer.querySelectorAll('.indicator-dot') : [];
+    const items = Array.from(track.querySelectorAll('.carousel-item'));
+    const dots = indicatorsContainer
+        ? items.map((_, index) => {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = `indicator-dot${index === 0 ? ' active' : ''}`;
+            dot.dataset.index = index;
+            dot.setAttribute('aria-label', `Go to recommendation ${index + 1}`);
+            dot.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
+            indicatorsContainer.appendChild(dot);
+            return dot;
+        })
+        : [];
 
     function updateCarousel() {
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        dots.forEach(dot => dot.classList.remove('active'));
-        if (dots[currentIndex]) dots[currentIndex].classList.add('active');
+        setActiveIndicator(dots, currentIndex);
     }
 
     document.getElementById('prev-rec')?.addEventListener('click', () => {
@@ -308,15 +546,20 @@ function renderRecommendations() {
 
     dots.forEach(dot => {
         dot.addEventListener('click', (e) => {
-            currentIndex = parseInt(e.target.dataset.index);
+            currentIndex = parseInt(e.currentTarget.dataset.index, 10);
             updateCarousel();
         });
     });
+
+    if (window.innerWidth <= 768 && viewport) {
+        viewport.scrollLeft = 0;
+    }
 }
 
 function renderContact() {
     const container = document.getElementById('contact-content');
     if (!container) return;
+    container.innerHTML = '';
 
     // ─── Left column: social / contact links (your existing logic) ───
     const linksCol = document.createElement('div');
@@ -392,6 +635,28 @@ function renderContact() {
 
     // Wire up the form submission
     handleContactForm();
+}
+
+function renderFooterSocials() {
+    const container = document.getElementById('mobile-footer-socials');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    personalInfo.socials.forEach((social) => {
+        const link = document.createElement('a');
+        link.href = social.url;
+        link.className = 'footer-social-link';
+        link.setAttribute('aria-label', social.name);
+        link.innerHTML = social.icon;
+
+        if (!social.url.startsWith('mailto:')) {
+            link.target = '_blank';
+            link.rel = 'noopener';
+        }
+
+        container.appendChild(link);
+    });
 }
 
 // ─────────────────────────────────────────────
@@ -485,6 +750,47 @@ function handleContactForm() {
     }
 }
 
+function initMobileMenu() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinksContainer = document.querySelector('.nav-links');
+    if (!mobileMenuBtn || !navLinksContainer) return;
+
+    const setMenuState = (isOpen) => {
+        navLinksContainer.classList.toggle('is-open', isOpen);
+        mobileMenuBtn.classList.toggle('is-open', isOpen);
+        mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+        mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Close Menu' : 'Open Menu');
+        document.body.classList.toggle('menu-open', isOpen);
+    };
+
+    mobileMenuBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        setMenuState(!navLinksContainer.classList.contains('is-open'));
+    });
+
+    navLinksContainer.querySelectorAll('.nav-link').forEach((link) => {
+        link.addEventListener('click', () => setMenuState(false));
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!navLinksContainer.classList.contains('is-open')) return;
+        if (navLinksContainer.contains(event.target) || mobileMenuBtn.contains(event.target)) return;
+        setMenuState(false);
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            setMenuState(false);
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) {
+            setMenuState(false);
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Render dynamic content
     renderAbout();
@@ -496,6 +802,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCertifications();
     renderRecommendations();
     renderContact();
+    renderFooterSocials();
+    initMobileMenu();
 
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -513,17 +821,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Scroll Observer for Active Nav Links
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
+    const dockLinks = document.querySelectorAll('.mobile-dock-link');
+
+    const updateActiveLinks = (links, id) => {
+        links.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+            }
+        });
+    };
 
     const navObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const id = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('active');
-                    }
-                });
+                updateActiveLinks(navLinks, id);
+                updateActiveLinks(dockLinks, id);
             }
         });
     }, { threshold: 0.3, rootMargin: "-50px 0px -20% 0px" });

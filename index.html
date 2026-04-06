@@ -25,7 +25,7 @@
         <div class="nav-container">
             <a href="#hero" class="logo">VS<span class="dot">.</span></a>
 
-            <div class="nav-links">
+            <div class="nav-links" id="site-nav">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#experience" class="nav-link">Experience</a>
@@ -48,7 +48,7 @@
                 </button>
             </div>
 
-            <button class="mobile-menu-btn" aria-label="Open Menu">
+            <button class="mobile-menu-btn" aria-label="Open Menu" aria-controls="site-nav" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -79,6 +79,24 @@
                             </svg>
                         </a>
                         <a href="#contact" class="btn btn-outline">Let's Connect</a>
+                    </div>
+                    <div class="mobile-hero-stats fade-up" style="transition-delay: 0.2s;">
+                        <div class="mobile-hero-stat">
+                            <strong>4+</strong>
+                            <span>Years</span>
+                        </div>
+                        <div class="mobile-hero-stat">
+                            <strong>10+</strong>
+                            <span>Certs</span>
+                        </div>
+                        <div class="mobile-hero-stat">
+                            <strong>10+</strong>
+                            <span>Projects</span>
+                        </div>
+                        <div class="mobile-hero-stat">
+                            <strong>Multi</strong>
+                            <span>Cloud</span>
+                        </div>
                     </div>
                 </div>
                 <div class="hero-visual fade-up" style="transition-delay: 0.3s;">
@@ -147,6 +165,7 @@
                     <p class="section-subtitle">A comprehensive breakdown of my capabilities within the Salesforce
                         ecosystem and beyond.</p>
                 </div>
+                <div class="skills-mobile-shell" id="skills-mobile-shell"></div>
                 <div class="skills-grid" id="skills-grid">
                     <!-- JS Injected -->
                 </div>
@@ -157,6 +176,9 @@
             <div class="container">
                 <div class="section-header fade-up">
                     <h2 class="section-title">Experience</h2>
+                </div>
+                <div class="mobile-experience-timeline" id="mobile-experience-timeline">
+                    <!-- JS Injected -->
                 </div>
                 <div class="timeline" id="experience-timeline">
                     <!-- JS Injected -->
@@ -217,7 +239,7 @@
                     <h2 class="section-title">Recommendations</h2>
                 </div>
                 <div class="carousel-container fade-up" style="margin: 0 auto;">
-                    <div
+                    <div class="carousel-viewport"
                         style="position: relative; overflow: hidden; border-radius: var(--radius-md); padding-bottom: 20px;">
                         <div class="carousel-track" id="recommendations-track">
                             <!-- JS Injected -->
@@ -258,9 +280,43 @@
 
     <footer>
         <div class="container">
+            <div class="mobile-footer-socials" id="mobile-footer-socials"></div>
             <p>&copy; <span id="year"></span> Vishwas Srivastav. All rights reserved.</p>
         </div>
     </footer>
+
+    <nav class="mobile-dock" aria-label="Mobile section navigation">
+        <a href="#hero" class="mobile-dock-link active">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 10.5 12 3l9 7.5" />
+                <path d="M5 9.5V21h14V9.5" />
+                <path d="M9.5 21v-6h5v6" />
+            </svg>
+            <span>Home</span>
+        </a>
+        <a href="#projects" class="mobile-dock-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="12" rx="2" />
+                <path d="M8 20h8" />
+                <path d="M12 16v4" />
+            </svg>
+            <span>Work</span>
+        </a>
+        <a href="#experience" class="mobile-dock-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                <path d="M4 7h16v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z" />
+                <path d="M4 11h16" />
+            </svg>
+            <span>Experience</span>
+        </a>
+        <a href="#contact" class="mobile-dock-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z" />
+            </svg>
+            <span>Contact</span>
+        </a>
+    </nav>
 
     <script type="module" src="js/script.js"></script>
 </body>
