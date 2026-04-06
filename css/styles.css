@@ -1959,6 +1959,54 @@ body.menu-open {
         display: flex;
     }
 
+    #recommendations {
+        padding-bottom: 30px;
+    }
+
+    #recommendations .carousel-container {
+        margin-bottom: 0;
+    }
+
+    #recommendations .carousel-viewport {
+        overflow: hidden !important;
+        padding: 6px 0 0 !important;
+        transition: height 0.35s ease;
+    }
+
+    #recommendations .carousel-track {
+        align-items: flex-start;
+        width: auto;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        touch-action: pan-x pan-y;
+    }
+
+    #recommendations .carousel-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    #recommendations .carousel-item {
+        display: flex;
+        flex: 0 0 100%;
+        min-width: 100%;
+        width: 100%;
+        scroll-snap-align: start;
+    }
+
+    #recommendations .carousel-item .card {
+        width: 100%;
+        gap: 14px;
+        padding: 22px 20px;
+    }
+
+    #recommendations .carousel-indicators {
+        margin-top: 8px;
+    }
+
     .rec-header {
         order: 2;
         margin-top: 0;

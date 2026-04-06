@@ -529,31 +529,113 @@ function renderRecommendations() {
         })
         : [];
 
-    function updateCarousel() {
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    const isMobileRecommendations = () => window.matchMedia('(max-width: 768px)').matches;
+
+    const syncRecommendationHeight = () => {
+        if (!viewport) return;
+
+        if (!isMobileRecommendations()) {
+            viewport.style.height = '';
+            return;
+        }
+
+        const activeCard = items[currentIndex]?.querySelector('.card');
+        if (!activeCard) return;
+
+        const viewportStyles = window.getComputedStyle(viewport);
+        const verticalPadding =
+            parseFloat(viewportStyles.paddingTop || '0') +
+            parseFloat(viewportStyles.paddingBottom || '0');
+
+        viewport.style.height = `${Math.ceil(activeCard.getBoundingClientRect().height + verticalPadding)}px`;
+    };
+
+    const getMobileScroller = () => (isMobileRecommendations() ? track : viewport);
+
+    const moveRecommendationCarousel = (behavior = 'smooth') => {
+        const activeItem = items[currentIndex];
+        if (!activeItem) return;
+
+        if (isMobileRecommendations()) {
+            track.style.transform = '';
+            track.scrollTo({
+                left: activeItem.offsetLeft,
+                behavior
+            });
+        } else {
+            track.style.transform = `translateX(-${activeItem.offsetLeft}px)`;
+        }
+
         setActiveIndicator(dots, currentIndex);
-    }
+        syncRecommendationHeight();
+    };
 
     document.getElementById('prev-rec')?.addEventListener('click', () => {
         currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
-        updateCarousel();
+        moveRecommendationCarousel();
     });
 
     document.getElementById('next-rec')?.addEventListener('click', () => {
         currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
-        updateCarousel();
+        moveRecommendationCarousel();
     });
 
     dots.forEach(dot => {
         dot.addEventListener('click', (e) => {
             currentIndex = parseInt(e.currentTarget.dataset.index, 10);
-            updateCarousel();
+            moveRecommendationCarousel();
         });
     });
 
-    if (window.innerWidth <= 768 && viewport) {
-        viewport.scrollLeft = 0;
+    if (viewport) {
+        let scrollFrame = 0;
+
+        const syncRecommendationIndexFromScroll = () => {
+            const scroller = getMobileScroller();
+            if (!isMobileRecommendations()) return;
+            if (!scroller) return;
+
+            const closestIndex = items.reduce((closest, item, index) => {
+                const distance = Math.abs(item.offsetLeft - scroller.scrollLeft);
+                return distance < closest.distance ? { index, distance } : closest;
+            }, { index: currentIndex, distance: Number.POSITIVE_INFINITY }).index;
+
+            if (closestIndex === currentIndex) return;
+
+            currentIndex = closestIndex;
+            setActiveIndicator(dots, currentIndex);
+            syncRecommendationHeight();
+        };
+
+        track.addEventListener('scroll', () => {
+            if (!isMobileRecommendations()) return;
+            if (scrollFrame) {
+                cancelAnimationFrame(scrollFrame);
+            }
+
+            scrollFrame = requestAnimationFrame(() => {
+                syncRecommendationIndexFromScroll();
+                scrollFrame = 0;
+            });
+        }, { passive: true });
+
+        items.forEach((item) => {
+            item.querySelectorAll('img').forEach((image) => {
+                image.addEventListener('load', syncRecommendationHeight);
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            syncRecommendationHeight();
+            moveRecommendationCarousel('auto');
+        });
     }
+
+    if (window.innerWidth <= 768) {
+        track.scrollLeft = 0;
+    }
+
+    moveRecommendationCarousel('auto');
 }
 
 function renderContact() {
