@@ -453,12 +453,14 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 10%;
+    object-position: top center;
+    transform: scale(1.4) translateY(-4%);
+    transform-origin: top center;
     transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .image-frame:hover .hero-img {
-    transform: scale(1.05);
+    transform: scale(1.45) translateY(-4%);
 }
 
 

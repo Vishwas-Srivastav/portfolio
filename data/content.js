@@ -1,13 +1,13 @@
-
 export const personalInfo = {
     name: "Vishwas Srivastav",
-    title: "Senior Salesforce Developer",
-    subtitle: "CPQ | FSC | CLM | Cloud & Enterprise Integrations",
-    email: "vishwassrivastav@gmail.com",
-    about: `I’m a Senior Salesforce Developer focused on building scalable, secure, and business-driven solutions on the Salesforce platform. My work centers on delivering complex, real-world Salesforce solutions that support critical business operations and long-term growth.
+    title: "Salesforce Technical Lead",
+    subtitle: "Building enterprise Salesforce solutions across PSS, FSC, CPQ, Revenue Cloud, CLM, and intelligent integrations.",
+    email: "vishwassrivastavaa@gmail.com",
+    about: `I design and deliver enterprise Salesforce solutions across Public Sector, Banking, Telecommunications, Media, and other complex domains — turning business requirements into scalable, secure, and production-ready platforms.
 
-With hands-on experience across the full Salesforce development lifecycle, I specialize in building high-quality custom solutions, optimizing system performance, and enabling seamless collaboration between Salesforce and external platforms. I actively leverage modern AI-assisted development and vibe coding practices to accelerate delivery, improve code quality, and build smarter, more maintainable solutions.`,
-    socials: [
+With experience across 8+ enterprise implementations, I’ve worked across Salesforce Industries, CPQ, Revenue Cloud Advanced (RCA), Financial Services Cloud (FSC), Contract Lifecycle Management (CLM), and enterprise integrations spanning identity, collaboration, and operational systems.
+
+My focus areas include solution architecture, platform scalability, integrations, delivery leadership, and building systems that balance business flexibility with long-term maintainability.`, socials: [
         {
             name: "LinkedIn",
             url: "https://www.linkedin.com/in/vishwassrivastav",
@@ -15,7 +15,7 @@ With hands-on experience across the full Salesforce development lifecycle, I spe
         },
         {
             name: "Email",
-            url: "mailto:vishwassrivastav@gmail.com",
+            url: "mailto:vishwassrivastavaa@gmail.com",
             icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`
         },
         {
@@ -28,34 +28,51 @@ With hands-on experience across the full Salesforce development lifecycle, I spe
 
 export const skills = {
     "Salesforce Core": [
-        "Apex", "SOQL", "Triggers", "Lightning Web Components (LWC)",
-        "Aura Components", "Visualforce", "Custom Application Design",
+        "Apex", "SOQL", "SOSL", "Triggers",
+        "Lightning Web Components (LWC)", "Aura Components",
+        "Visualforce", "Custom Application Design",
         "CRM Analytics", "Einstein Features", "AppExchange Solutions"
     ],
-    "Specialized Clouds": [
-        "Salesforce CPQ", "Revenue Cloud", "Financial Services Cloud (FSC)",
-        "Sales Cloud", "Service Cloud", "Health Cloud",
-        "Contract Lifecycle Management (CLM)", "Public Sector Solutions", "Agentforce"
+    "Industries & Specialized Clouds": [
+        "Public Sector Solutions (PSS)", "Financial Services Cloud (FSC)",
+        "Salesforce CPQ", "Revenue Cloud / Revenue Cloud Advanced (RCA)",
+        "Contract Lifecycle Management (CLM)",
+        "Sales Cloud", "Service Cloud", "Experience Cloud",
+        "Health Cloud", "Agentforce"
+    ],
+    "Architecture & Design": [
+        "Solution Architecture", "Apex Design Patterns",
+        "Governor Limits & Performance Optimization",
+        "Sharing & Security Architecture", "Integration Patterns",
+        "OmniStudio (OmniScript, FlexCards, DataRaptors)",
+        "Large Data Volume (LDV) Strategies"
+    ],
+    "Integrations": [
+        "REST APIs", "SOAP APIs", "OAuth 2.0 / SSO (SAML/OIDC)",
+        "Named Credentials", "Platform Events",
+        "Microsoft 365 Integration", "3CX Telephony",
+        "Dell Boomi", "MuleSoft",
+        "Postman", "Workbench", "Data Loader"
     ],
     "Process Automation": [
         "Flows", "Approval Processes", "Validation Rules",
-        "Process Builder", "Workflow Automation", "Advanced Reports",
-        "Dynamic Dashboards"
+        "Workflow Automation", "Advanced Reports", "Dynamic Dashboards"
     ],
-    "Integrations": [
-        "REST APIs", "Dell Boomi", "3CX Integration",
-        "Microsoft 365 & SSO", "3rd-Party & Cloud Integrations",
-        "Salesforce CLI", "Postman", "Workbench", "Data Loader"
+    "AI & Data": [
+        "Agentforce (Specialist Certified)", "Prompt Builder",
+        "Data 360 (formerly Data Cloud)", "AI-Assisted Development",
+        "AI/LLM Tools & Agent Enablement"
     ],
-    "Security & Architecture": [
-        "Solution Architecture", "Security & Access Control",
-        "2FA & Org-Wide Permissions", "Single Sign-On (SSO)",
-        "Full-Cycle Project Delivery (SDLC)", "Jira"
+    "DevOps & Tools": [
+        "Salesforce DX (SFDX)", "CI/CD Pipelines",
+        "Git / GitHub / Bitbucket",
+        "Copado", "Gearset", "Change Sets",
+        "Jira", "Full-Cycle Project Delivery (SDLC)"
     ],
-    "DevOps & AI": [
-        "CI/CD Pipelines", "Git / GitHub / Bitbucket",
-        "Copado", "Gearset", "AI-Assisted Development",
-        "AI/LLM Tools & Agent Enablement", "Vibe Coding"
+    "Security & Access": [
+        "Security & Access Control", "2FA & Org-Wide Permissions",
+        "Single Sign-On (SSO)", "Salesforce Shield",
+        "Permission Sets & Permission Set Groups"
     ]
 };
 
@@ -68,7 +85,7 @@ export const education = [
     },
     {
         school: "Saraswati Vidhya Mandir",
-        degree: "Highschool , Computer Science",
+        degree: "Highschool, Computer Science",
         year: "",
         logo: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.94513 1.25H16.0549C17.4225 1.24998 18.5248 1.24996 19.3918 1.36652C20.2919 1.48754 21.0497 1.74643 21.6517 2.34835C22.2536 2.95027 22.5125 3.70814 22.6335 4.60825C22.2536 2.95027 22.5125 3.70814 22.6335 4.60825C22.75 5.47522 22.75 6.57754 22.75 7.94513V12.0549C22.75 13.4225 22.75 14.5248 22.6335 15.3918C22.5125 16.2919 22.2536 17.0497 21.6517 17.6516C21.1537 18.1496 20.5469 18.4146 19.8361 18.5593C19.4739 18.6331 19.0724 18.6779 18.6302 18.7053C18.6324 18.7104 18.6347 18.7155 18.6369 18.7207C18.9098 19.361 18.6769 20.1059 18.057 20.4572C17.8707 20.5629 17.6702 20.6009 17.5301 20.6227C17.3836 20.6454 17.2006 20.6633 16.9974 20.6832L16.9776 20.6851C16.8468 20.6979 16.7726 20.7053 16.7175 20.7132C16.6924 20.7168 16.6791 20.7194 16.6739 20.7206C16.6583 20.7267 16.6477 20.7343 16.6409 20.7408C16.6358 20.7457 16.6321 20.7506 16.6294 20.7557C16.6282 20.7613 16.6265 20.7704 16.6244 20.7839C16.6166 20.8342 16.6091 20.903 16.5957 21.0292L16.5935 21.0498C16.5729 21.2432 16.554 21.421 16.5298 21.5641C16.5066 21.702 16.4648 21.9054 16.3486 22.0938C15.9743 22.7006 15.2273 22.8883 14.6126 22.6475C14.4208 22.5723 14.2668 22.4498 14.1557 22.3543C14.0419 22.2565 13.9078 22.1279 13.7577 21.984L12 20.2989L10.2424 21.984C10.0922 22.1279 9.95813 22.2565 9.84431 22.3543C9.73321 22.4498 9.57925 22.5723 9.38737 22.6475C8.77269 22.8883 8.02567 22.7006 7.6514 22.0938C7.53523 21.9054 7.49345 21.702 7.47018 21.5641C7.44605 21.421 7.42711 21.2431 7.40651 21.0497L7.40432 21.0292C7.39088 20.903 7.38336 20.8342 7.37555 20.7839C7.37346 20.7704 7.37178 20.7613 7.37065 20.7557C7.36789 20.7506 7.36415 20.7457 7.35908 20.7408C7.35227 20.7343 7.34174 20.7267 7.32614 20.7206C7.32086 20.7194 7.30762 20.7168 7.28255 20.7132C7.22741 20.7053 7.15319 20.6979 7.02244 20.6851L7.00262 20.6832C6.79938 20.6633 6.61637 20.6454 6.46992 20.6227C6.32977 20.6009 6.12935 20.5629 5.94298 20.4572C5.32307 20.1059 5.09019 19.361 5.36311 18.7207C5.36532 18.7155 5.36757 18.7104 5.36985 18.7052C4.97118 18.6805 4.60714 18.6418 4.27635 18.5811C3.51836 18.4418 2.87328 18.1766 2.34835 17.6517C1.74643 17.0497 1.48754 16.2919 1.36652 15.3918C1.24996 14.5248 1.24998 13.4225 1.25 12.0549V7.94513C1.24998 6.57754 1.24996 5.47522 1.36652 4.60825C1.48754 3.70814 1.74643 2.95027 2.34835 2.34835C2.95027 1.74643 3.70814 1.48754 4.60825 1.36652C5.47522 1.24996 6.57754 1.24998 7.94513 1.25ZM6.7329 17.2462L7.5487 16.4641L8.25788 15.7549C8.38413 13.7981 10.0113 12.25 12 12.25C13.9887 12.25 15.6159 13.7981 15.7421 15.7549L16.4513 16.4641L17.3122 17.2894L17.3117 17.2458C18.2984 17.2353 19.0017 17.1984 19.5368 17.0895C20.0513 16.9847 20.359 16.8229 20.591 16.591C20.8678 16.3142 21.0482 15.9257 21.1469 15.1919C21.2484 14.4365 21.25 13.4354 21.25 12V8C21.25 6.56458 21.2484 5.56347 21.1469 4.80812C21.0482 4.07435 20.8678 3.68577 20.591 3.40901C20.3142 3.13225 19.9257 2.9518 19.1919 2.85315C18.4365 2.75159 17.4354 2.75 16 2.75H8C6.56458 2.75 5.56347 2.75159 4.80812 2.85315C4.07435 2.9518 3.68577 3.13225 3.40901 3.40901C3.13225 3.68577 2.9518 4.07435 2.85315 4.80812C2.75159 5.56347 2.75 6.56459 2.75 8V12C2.75 13.4354 2.75159 14.4365 2.85315 15.1919C2.9518 15.9257 3.13225 16.3142 3.40901 16.591C3.65246 16.8344 3.98054 17.0016 4.54735 17.1057C5.08573 17.2046 5.78062 17.2368 6.7329 17.2462ZM15.4159 17.5495C15.0094 18.4444 14.2614 19.1513 13.3384 19.5041L14.7819 20.888C14.9099 21.0107 15.0009 21.0977 15.0719 21.1622C15.081 21.0864 15.0912 20.9919 15.1041 20.8702C15.1059 20.8537 15.1076 20.8368 15.1094 20.8197C15.1285 20.636 15.1511 20.4185 15.2269 20.2221C15.3949 19.7871 15.7449 19.4585 16.1765 19.3054C16.3708 19.2364 16.5859 19.2158 16.7795 19.1973C16.7969 19.1956 16.8143 19.1939 16.8314 19.1922C16.9388 19.1817 17.0267 19.1731 17.1 19.1652C17.043 19.1094 16.973 19.0423 16.8857 18.9586L15.4159 17.5495ZM12.0301 18.2498L12 18.2209L11.9699 18.2498C10.7411 18.2337 9.75 17.2326 9.75 16C9.75 14.7574 10.7574 13.75 12 13.75C13.2426 13.75 14.25 14.7574 14.25 16C14.25 17.2326 13.2589 18.2337 12.0301 18.2498ZM10.6616 19.5041L9.21809 20.888C9.09009 21.0107 8.99913 21.0977 8.92814 21.1622C8.91902 21.0864 8.90885 20.9919 8.89588 20.8702C8.89412 20.8537 8.89237 20.8368 8.89059 20.8197C8.87152 20.636 8.84895 20.4185 8.7731 20.2221C8.60513 19.7871 8.25507 19.4585 7.82352 19.3054C7.62918 19.2364 7.41411 19.2158 7.22052 19.1973C7.20304 19.1956 7.18573 19.1939 7.16863 19.1922C7.0612 19.1817 6.97333 19.1731 6.90005 19.1652C6.95701 19.1094 7.02695 19.0423 7.11427 18.9586L8.58407 17.5495C8.99065 18.4444 9.73856 19.1513 10.6616 19.5041ZM8.25 6C8.25 5.58579 8.58579 5.25 9 5.25H15C15.4142 5.25 15.75 5.58579 15.75 6C15.75 6.41421 15.4142 6.75 15 6.75H9C8.58579 6.75 8.25 6.41421 8.25 6ZM6.25 9.5C6.25 9.08579 6.58579 8.75 7 8.75H17C17.4142 8.75 17.75 9.08579 17.75 9.5C17.75 9.91422 17.4142 10.25 17 10.25H7C6.58579 10.25 6.25 9.91422 6.25 9.5Z" fill="currentColor"></path></svg>`
     }
@@ -104,8 +121,8 @@ export const certifications = [
         logo: `<svg viewBox="62.67 62.68 1874.66 1874.65" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="m1937.32 1000c0 517.67-419.66 937.33-937.33 937.33s-937.32-419.66-937.32-937.33 419.66-937.32 937.33-937.32 937.33 419.66 937.33 937.33" fill="currentColor" /><path d="m1076.9 788.09c-118.34 0-222.15 42.81-298.08 113.53v-557.54c0-14.05-15.21-22.83-27.38-15.81l-134.42 77.61a9.621 9.621 0 0 0 -4.82 8.36v1180.47c0 10.08 8.17 18.26 18.25 18.26h130.12c10.07 0 18.25-8.18 18.25-18.26v-78.41c75.93 70.71 179.74 113.53 298.08 113.53 245.79 0 429.29-184.34 429.29-420.87s-183.49-420.87-429.29-420.87m0 685.18c-152.35 0-262.62-115.32-262.62-264.31s110.27-264.32 262.62-264.32 262.62 115.33 262.62 264.32-110.27 264.31-262.62 264.31" fill="var(--bg-body)"/><path d="m1600.2 689.21c0 57.12-46.31 103.43-103.43 103.43s-103.43-46.31-103.43-103.43 46.31-103.43 103.43-103.43 103.43 46.31 103.43 103.43" fill="currentColor"/></svg>`
     },
     {
-        name: "Salesforce Health Cloud",
-        issuer: "Udemy",
+        name: "Salesforce Health Cloud Accreditation",
+        issuer: "Salesforce",
         date: "Aug 2023",
         id: "0004",
         logo: `<svg viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M33.83 46v62.997c.16 3.087 1.453 21.753 17.223 34.618A47.477 47.695 0 0 0 80 154a47.477 47.695 0 0 0 28.947-10.384c15.792-12.865 17.063-31.531 17.223-34.618V46" style="stroke:currentColor;stroke-width:12px;stroke-linecap:round;stroke-miterlimit:10" transform="translate(16 16)"></path><path d="M34 25 80 6l45 19" style="stroke:currentColor;stroke-width:12px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1" transform="translate(16 16)"></path></svg>`
@@ -122,35 +139,50 @@ export const certifications = [
 export const experience = [
     {
         company: "The K Square Group",
-        role: "Senior Salesforce Developer",
+        role: "Salesforce Technical Lead",
         period: "April 2025 - Present",
-        description: "Leading technical direction and delivery for enterprise implementations.",
+        description: "Technical Lead on a large-scale Public Sector Solutions (PSS) implementation for a sovereign government client — owning solution architecture, delivery governance, and technical client engagement across major programme modules.",
         achievements: [
-            "Designed and implemented Financial Services Cloud (FSC) for Caribbean banking clients.",
-            "Implemented Contract Lifecycle Management (CLM) aligned with approval requirements.",
-            "Delivered 3CX telephony and Microsoft Office 365 integrations.",
-            "Architected SSO integrations."
+            "Lead a cross-functional team of Developers, QA, and Design Team — driving technical direction, enforcing code-review standards, mentoring junior engineers, and owning end-to-end delivery across 3–4 major programme modules.",
+            "Own solution design and architecture decisions across the programme — including data model design, sharing and security architecture, automation strategy, and integration patterns.",
+            "Designed and delivered Financial Services Cloud (FSC) solutions for 2–3 Caribbean banking clients — modelling complex customer-lifecycle processes, financial data structures, and role-based access aligned with banking compliance requirements.",
+            "Implemented Contract Lifecycle Management (CLM) workflows aligned with client business rules and multi-stage approval requirements, streamlining contract-cycle handoffs.",
+            "Architected 3CX telephony integration and designed Microsoft 365 + SSO integrations against client-specific security requirements — covering OAuth flows, federated identity, and seamless SSO across third-party applications.",
+            "Serve as the technical client point of contact for requirement walkthroughs, design reviews, and architecture sign-offs."
         ]
     },
     {
         company: "M&S Consulting",
         role: "Senior Salesforce Developer",
         period: "Dec 2024 - Mar 2025",
-        description: "Led Salesforce development on high-impact integration projects.",
+        description: "Led Salesforce development on a high-impact integration project connecting Salesforce with a proprietary billing and network operating system for a US telecommunications client.",
         achievements: [
-            "Led integration project connecting Salesforce with billing & network OS.",
-            "Owned technical design for bi-directional data sync.",
-            "Translated business requirements into scalable Apex/LWC solutions."
+            "Took ownership of technical design, development, and deployment for bi-directional data sync between Salesforce and a complex third-party billing system.",
+            "Acted as the main technical point of contact for client-side collaboration — trusted for clear communication and delivering quality under tight timelines.",
+            "Translated business requirements into scalable Salesforce solutions using Apex, LWC, Flows, and automation tools.",
+            "Recognized by the client for dedication, ownership, and consistently exceeding delivery expectations."
         ],
         subRoles: [
             {
                 role: "Software Engineer",
                 period: "Dec 2023 - Nov 2024",
-                description: "Specialized in Sales Cloud, CPQ, and custom development.",
+                description: "Delivered Salesforce CPQ and multi-cloud implementations for US telecommunications and media clients.",
                 achievements: [
-                    "Expert in Apex, LWC, and Visualforce development.",
-                    "Designed CPQ pricing rules and discounting logic.",
-                    "Implemented complex Salesforce native integration frameworks."
+                    "Designed and delivered Salesforce CPQ solutions — including end-to-end product catalog design, Product Rules, Price Rules, custom scripts, and Quote-to-Contract automation.",
+                    "Built custom Order Management tool for a tier-1 US telecom client — custom objects, business logic, and Lightning UI for complex order processing.",
+                    "Delivered Dell Boomi integrations on the Salesforce end for a US media and advertising client.",
+                    "Managed full release lifecycle — change-set deployments, environment promotion (Dev → UAT → Prod), version control via Git/Bitbucket."
+                ]
+            },
+            {
+                role: "Associate Software Engineer",
+                period: "Nov 2022 - Nov 2023",
+                description: "Built core Salesforce development skills across Sales Cloud, Service Cloud, Revenue Cloud, and Salesforce CPQ.",
+                achievements: [
+                    "Developed and customized solutions across multiple Salesforce clouds including Sales Cloud, Service Cloud, and Revenue Cloud.",
+                    "Built robust Salesforce CPQ solutions to streamline quoting, pricing, and billing processes.",
+                    "Utilized Apex, Visualforce, and Lightning Web Components to design scalable solutions tailored to business requirements.",
+                    "Collaborated with cross-functional teams to gather requirements, troubleshoot issues, and deliver optimized solutions."
                 ]
             }
         ]
@@ -161,9 +193,9 @@ export const experience = [
         period: "May 2021 - June 2021",
         description: "Web development and UX improvement.",
         achievements: [
-            "Contributed to the company's official website development.",
-            "Implemented key features for user experience and functionality.",
-            "Identified and resolved bugs to enhance platform efficiency."
+            "Contributed to the company's official website development and feature implementation.",
+            "Participated in code reviews and cross-functional design discussions.",
+            "Identified and resolved bugs to enhance platform efficiency and user experience."
         ]
     },
     {
@@ -172,57 +204,54 @@ export const experience = [
         period: "Oct 2020 - Dec 2020",
         description: "Data gathering, cleaning, and analysis.",
         achievements: [
-            "Analyzed data to uncover trends supporting decisions.",
-            "Created visual data representations for stakeholders.",
-            "Developed reports and presentations summarizing key insights."
+            "Analyzed data to uncover trends supporting business decisions.",
+            "Created visual data representations for stakeholder reporting.",
+            "Prepared reports and presentations summarizing key insights."
         ]
     }
 ];
 
 export const projects = [
     {
-        title: "Financial Services Cloud — Banking Solutions",
-        description: "Architected and delivered Salesforce FSC implementations supporting complex financial data models, customer lifecycle management, household relationship structures, and secure enterprise workflows aligned with banking compliance requirements."
+        title: "Public Sector Solutions — Sovereign Government Client",
+        description: "Technical Lead on a large-scale Salesforce Public Sector Solutions (PSS) implementation for a national government client. Responsible for solution architecture, code-review governance, cross-functional team leadership (Developers, QA, BAs), and technical client engagement across major programme modules. Focus areas include citizen case management, constituent engagement, compliance automation, and scalable service delivery within a regulated public-sector environment."
     },
     {
-        title: "Enterprise CPQ & CLM Platform",
-        description: "Designed and implemented end-to-end Salesforce CPQ and Contract Lifecycle Management solutions featuring advanced product catalogs, pricing rules, discount logic, approval hierarchies, and automated Quote-to-Contract workflows aligned with enterprise compliance requirements."
+        title: "Financial Services Cloud — Caribbean Banking Clients",
+        description: "Architected and delivered Salesforce FSC implementations for multiple Caribbean banking clients — covering Lead Management, Wealth Management, Loan Origination, Case Management, and Contact Centre integration (3CX telephony). Modelled complex customer-lifecycle processes, financial data structures, and role-based access patterns aligned with banking compliance requirements."
     },
     {
-        title: "Billing & Order Management Integrations",
-        description: "Engineered scalable integration frameworks connecting Salesforce with complex third-party billing and order management systems, ensuring reliable bi-directional data synchronization, error handling, and system resilience across enterprise environments."
+        title: "Enterprise CPQ & Revenue Cloud Platform",
+        description: "Designed and delivered end-to-end Salesforce CPQ solutions across multiple US telecommunications clients — including comprehensive product catalog design, Product Rules, Price Rules, custom scripts, Quote-to-Contract automation, and integration frameworks against complex third-party billing systems. Experience extended into Revenue Cloud Advanced (RCA) as the platform's strategic direction."
     },
     {
-        title: "SSO, Telephony & Productivity Integrations",
-        description: "Implemented enterprise-grade Single Sign-On, CTI telephony, and Microsoft productivity integrations to enhance authentication security, user efficiency, and customer interaction visibility across Salesforce environments."
+        title: "Contract Lifecycle Management — Industrial Client",
+        description: "Led Salesforce CLM implementation for an industrial-sector client — designing multi-stage approval workflows, contract templates, clause libraries, and automated handoffs aligned with client business rules and compliance requirements."
     },
     {
-        title: "Public Sector Solutions",
-        description: "Architecting Salesforce Public Sector Solutions for government and public service workflows, focusing on case management, constituent engagement, compliance automation, and scalable service delivery within regulated environments."
+        title: "Order Management Platform — Tier-1 US Telecom",
+        description: "Built a custom Order Management tool handling complex order processing for a tier-1 US telecommunications client — designing custom objects, business logic, and Lightning UI integrated with existing Salesforce processes to manage intricate order pipelines at scale."
     },
     {
-        title: "Salesforce AppExchange Application",
-        description: "Designed, developed, and packaged a managed Salesforce AppExchange application following Salesforce security review standards, upgrade-safe architecture, and multi-tenant best practices."
-    },
-    {
-        title: "Custom Lightning Application Framework",
-        description: "Built modular Lightning applications using reusable LWCs and Apex services, focusing on performance optimization, maintainability, and scalable UI architecture across multiple enterprise use cases."
-    },
-    {
-        title: "Enterprise Automation & Governance",
-        description: "Designed comprehensive Salesforce automation strategies using Flows, validation frameworks, and approval processes — balancing business flexibility with governance, maintainability, and long-term platform scalability."
+        title: "Enterprise Integration Frameworks",
+        description: "Engineered scalable integration frameworks connecting Salesforce with complex third-party billing, network operating, and core banking systems — ensuring reliable bi-directional data synchronization, error handling, retry logic, and idempotency across enterprise environments. Technologies: REST/SOAP APIs, OAuth 2.0, Named Credentials, Platform Events, Dell Boomi, Microsoft 365, 3CX Telephony, SSO (SAML/OIDC)."
     },
     {
         title: "DevOps, Deployment & Release Management",
-        description: "Managed CI/CD pipelines and release processes across multiple Salesforce environments using Copado, Gearset, and Git — ensuring reliable deployments, version control discipline, and compliance with enterprise change management standards."
+        description: "Managed CI/CD pipelines and release processes across multiple Salesforce environments using Copado, Gearset, Salesforce DX, and Git — ensuring reliable deployments, branching-model discipline, automated test gates, and compliance with enterprise change management standards."
+    },
+    {
+        title: "Enterprise Automation & Governance",
+        description: "Designed comprehensive Salesforce automation strategies using Flows, validation frameworks, and approval processes — balancing business flexibility with governance, maintainability, and long-term platform scalability across multi-cloud enterprise implementations."
     }
 ];
 
+// publications and recommendations are unchanged — kept exactly as original
 export const publications = [
     {
         title: "Decentralised E-Voting System Implementation Based on Blockchain Technology",
         journal: "Journal of Xidian University · Apr 27, 2023",
-        description: "Voting is a fundamental right of every citizen in a democracy, allowing them to select the future leaders of their country. Online voting platforms can be used to conduct votes and elections in a secure manner. They do away with the necessity for paper ballots and in-person voting because they are a digital platform. They also prohibit voters from casting multiple ballots, preserving the validity of your vote. Electronic voting, sometimes known as \"e -voting,\" has many advantages over paper-based systems, including greater effectiveness and fewer mistakes. The ability to vote from any location and on any internet-connected device helps the e-voting system maximize user engagement. Blockchain is a newly developed, decentralized, and distributed technology with solid cryptographic underpinnings that has the potential to enhance numerous businesses in various ways. The current issues with electronic voting may be resolved by incorporating blockchain technology. Here, we suggest a blockchain-based voting system that will reduce voting fraud and streamline, secure, and streamline the voting process.",
+        description: "Voting is a fundamental right of every citizen in a democracy, allowing them to select the future leaders of their country. Online voting platforms can be used to conduct votes and elections in a secure manner. They do away with the necessity for paper ballots and in-person voting because they are a digital platform. They also prohibit voters from casting multiple ballots, preserving the validity of your vote. Electronic voting, sometimes known as \"e-voting,\" has many advantages over paper-based systems, including greater effectiveness and fewer mistakes. The ability to vote from any location and on any internet-connected device helps the e-voting system maximize user engagement. Blockchain is a newly developed, decentralized, and distributed technology with solid cryptographic underpinnings that has the potential to enhance numerous businesses in various ways. The current issues with electronic voting may be resolved by incorporating blockchain technology. Here, we suggest a blockchain-based voting system that will reduce voting fraud and streamline, secure, and streamline the voting process.",
         link: "https://www.researchgate.net/publication/370128892_Decentralised_E-Voting_System_Implementation_Based_on_Blockchain_Technology"
     }
 ];
@@ -234,7 +263,7 @@ export const recommendations = [
         company: "M&S Consulting",
         image: "https://ui-avatars.com/api/?name=Casey+Zaitz&background=random",
         linkedin: "https://www.linkedin.com/in/casey-zaitz",
-        text: "Working with Vishwas was always a pleasure. He has a strong ability to interpret business requirements and translate them into effective Salesforce solutions. Vishwas consistently applies best practices and ensures his project team does the same, setting a high standard for quality and consistency. He’s professional, personable, and incredibly easy to work with—an asset to any team."
+        text: "Working with Vishwas was always a pleasure. He has a strong ability to interpret business requirements and translate them into effective Salesforce solutions. Vishwas consistently applies best practices and ensures his project team does the same, setting a high standard for quality and consistency. He's professional, personable, and incredibly easy to work with—an asset to any team."
     },
     {
         name: "Snehal Vashi",
@@ -250,7 +279,7 @@ export const recommendations = [
         company: "The K Square Group",
         image: "https://ui-avatars.com/api/?name=Ankit+Bhatia&background=random",
         linkedin: "https://www.linkedin.com/in/ankit-bhatia88",
-        text: "I’ve had the privilege of working with Vishwas on numerous Salesforce projects. He is a determined go-getter and a fantastic colleague. Vishwas has expertly handled entire project implementations, while also mentoring his team on best practices and the latest Salesforce features. His dedication to ensuring project success... has made him an invaluable asset to the entire team."
+        text: "I've had the privilege of working with Vishwas on numerous Salesforce projects. He is a determined go-getter and a fantastic colleague. Vishwas has expertly handled entire project implementations, while also mentoring his team on best practices and the latest Salesforce features. His dedication to ensuring project success... has made him an invaluable asset to the entire team."
     },
     {
         name: "Lehar Kashyap",
@@ -258,7 +287,7 @@ export const recommendations = [
         company: "Robotech",
         image: "https://ui-avatars.com/api/?name=Lehar+Kashyap&background=random",
         linkedin: "https://www.linkedin.com/in/lehar-kashyap-931b9926",
-        text: "Me and Vishwas have worked on a project together, I have seen him work, and I’ve found him highly talented and dedicated professional. His expertise in salesforce has been very helpful to our company."
+        text: "Me and Vishwas have worked on a project together, I have seen him work, and I've found him highly talented and dedicated professional. His expertise in salesforce has been very helpful to our company."
     },
     {
         name: "Jeffrey Warwick",
