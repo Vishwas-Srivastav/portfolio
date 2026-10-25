@@ -352,6 +352,8 @@ function renderExperience() {
                     `).join('')}
                 </div>
             `;
+        }
+
         const isCurrent = chapter.badge === 'Current Chapter';
         const badgeClass = isCurrent ? 'editorial-badge gold' : 'editorial-badge subtle';
         const badgeHtml = chapter.badge ? `<div><span class="${badgeClass}">${chapter.badge}</span></div>` : '';
