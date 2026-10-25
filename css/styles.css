@@ -187,7 +187,7 @@ p {
     left: 0;
     width: 24px;
     height: 3px;
-    background: var(--accent);
+    background: var(--accent-gold);
     border-radius: 2px;
 }
 
@@ -244,7 +244,7 @@ p {
 }
 
 .logo .dot {
-    color: var(--accent);
+    color: var(--accent-gold);
 }
 
 .nav-links {
@@ -366,7 +366,7 @@ p {
 }
 
 .hero-subtitle .bullet {
-    color: var(--accent);
+    color: var(--accent-gold);
     opacity: 0.85;
     font-size: 0.8rem;
 }
@@ -607,8 +607,8 @@ p {
     width: 34px;
     height: 34px;
     border-radius: var(--radius-sm);
-    background: color-mix(in srgb, var(--accent) 12%, transparent);
-    color: var(--accent);
+    background: color-mix(in srgb, var(--accent-gold) 12%, transparent);
+    color: var(--accent-gold);
     flex-shrink: 0;
 }
 
@@ -630,16 +630,16 @@ p {
     letter-spacing: 0.05em;
     padding: 4px 10px;
     border-radius: var(--radius-full);
-    background: color-mix(in srgb, var(--accent) 12%, transparent);
-    color: var(--accent);
-    border: 1px solid color-mix(in srgb, var(--accent) 26%, transparent);
+    background: color-mix(in srgb, var(--accent-gold) 12%, transparent);
+    color: var(--accent-gold);
+    border: 1px solid color-mix(in srgb, var(--accent-gold) 26%, transparent);
 }
 
 .badge-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--accent);
+    background: var(--accent-gold);
     display: inline-block;
 }
 
@@ -821,7 +821,7 @@ p {
 .editorial-company {
     font-size: 1.05rem;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--accent-gold);
 }
 
 .editorial-narrative {
@@ -859,7 +859,7 @@ p {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--accent);
+    color: var(--accent-gold);
     margin-bottom: 6px;
 }
 
@@ -938,7 +938,7 @@ p {
     border-radius: var(--radius-sm);
     border: 1px solid var(--border);
     padding: 8px;
-    color: var(--accent);
+    color: var(--accent-gold);
 }
 
 .cert-logo svg {
@@ -956,7 +956,7 @@ p {
     border-radius: var(--radius-sm);
     border: 1px solid var(--border);
     padding: 8px;
-    color: var(--accent);
+    color: var(--accent-gold);
 }
 
 .edu-logo svg {
@@ -2119,7 +2119,7 @@ body.menu-open {
         content: '"';
         display: block;
         margin-bottom: 12px;
-        color: color-mix(in srgb, var(--accent) 75%, white 8%);
+        color: var(--accent-gold);
         font-size: 2.35rem;
         line-height: 1;
         font-style: normal;

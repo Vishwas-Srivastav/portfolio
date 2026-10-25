@@ -227,7 +227,7 @@ function renderSkills() {
         const tags = list.map(s => `<span class="tag">${s}</span>`).join('');
         div.innerHTML = `
             <h3 class="skill-category-title">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                 ${category}
             </h3>
             <div class="skill-tags">${tags}</div>
@@ -501,7 +501,7 @@ function renderEducation() {
                 <div class="edu-logo">${edu.logo}</div>
                 <div>
                     <h4 class="cert-name" style="margin:0;">${edu.degree}</h4>
-                    <div style="color: var(--accent); font-weight: 500; font-size: 0.95rem;">${edu.school}</div>
+                    <div style="color: var(--accent-gold); font-weight: 500; font-size: 0.95rem;">${edu.school}</div>
                 </div>
             </div>
             ${edu.year ? `<div style="font-size: 0.85rem; color: var(--text-tertiary); margin-top: 16px;">${edu.year}</div>` : ''}
@@ -521,7 +521,7 @@ function renderPublications() {
         div.style.transitionDelay = `${i * 0.1}s`;
         div.innerHTML = `
             <h3 class="project-title">${pub.title}</h3>
-            <div style="color: var(--accent); font-weight: 500; font-size: 0.9rem; margin-bottom: 12px;">${pub.journal}</div>
+            <div style="color: var(--accent-gold); font-weight: 500; font-size: 0.9rem; margin-bottom: 12px;">${pub.journal}</div>
             <p class="project-desc" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">${pub.description}</p>
             <a href="${pub.link}" class="btn btn-outline" style="font-size: 0.85rem; padding: 10px 20px;" target="_blank" rel="noopener">
                 Read Publication
