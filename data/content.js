@@ -119,7 +119,23 @@ export const experience = [
         company: "The K Square Group",
         role: "Salesforce Technical Lead",
         period: "April 2025 - Present",
-        description: "Technical Lead on a sovereign government Public Sector Solutions (PSS) program - directing solution architecture, delivery governance, and multi-cloud engineering.",
+        yearStamp: "2025",
+        badge: "Current Chapter",
+        description: "Technical Lead directing solution architecture, multi-cloud engineering, and delivery governance across national government public sector transformations and regional banking programs.",
+        highlights: [
+            {
+                title: "National PSS Governance",
+                desc: "Lead technical architecture and cross-functional engineering (Dev, QA, BA) across 3-4 core modules on a sovereign national government PSS program."
+            },
+            {
+                title: "Financial Services Cloud",
+                desc: "Architected and delivered Financial Services Cloud (FSC) and 3CX contact center telephony integration for regional Caribbean banking institutions."
+            },
+            {
+                title: "Architecture Decision Records",
+                desc: "Drive technical governance, author ADRs, and enforce strict code-review and quality standards across delivery teams."
+            }
+        ],
         achievements: [
             "Lead technical architecture and cross-functional engineering (Dev, QA, BA) across 3-4 core modules on a sovereign national government PSS program.",
             "Architected and delivered Financial Services Cloud (FSC) and 3CX contact center telephony integration for regional Caribbean banking institutions.",
@@ -129,46 +145,61 @@ export const experience = [
     {
         company: "M&S Consulting",
         role: "Senior Salesforce Developer",
-        period: "Dec 2024 - Mar 2025",
-        description: "Led Salesforce architecture on a high-throughput integration connecting Salesforce with a proprietary billing and network operating engine for a US telecom client.",
-        achievements: [
-            "Spearheaded technical architecture and deployment for bi-directional data synchronization between Salesforce and proprietary billing systems.",
-            "Served as client technical lead for requirement walkthroughs, solution designs, and production release sign-offs."
-        ],
+        period: "Nov 2022 - Mar 2025",
+        yearStamp: "2022 - 25",
+        badge: "3 Progressive Roles",
+        description: "Spearheaded high-throughput data sync architectures for enterprise US telecom clients, progressing from Associate Engineer to Senior Developer leading client design walkthroughs.",
         subRoles: [
+            {
+                role: "Senior Salesforce Developer",
+                period: "Dec 2024 - Mar 2025",
+                description: "Led Salesforce architecture on a high-throughput integration connecting Salesforce with a proprietary billing and network operating engine for a US telecom client."
+            },
             {
                 role: "Software Engineer",
                 period: "Dec 2023 - Nov 2024",
-                description: "Delivered Salesforce CPQ product catalogs, Quote-to-Contract automation, and custom Order Management for tier-1 US telecom & media clients.",
-                achievements: [
-                    "Engineered CPQ product rules, pricing logic, and Quote-to-Contract automation for complex enterprise telecom bundles."
-                ]
+                description: "Delivered Salesforce CPQ product catalogs, Quote-to-Contract automation, and custom Order Management for tier-1 US telecom & media clients."
             },
             {
                 role: "Associate Software Engineer",
                 period: "Nov 2022 - Nov 2023",
-                description: "Built scalable custom applications across Sales Cloud, Service Cloud, and Revenue Cloud using Apex, LWC, and Flows.",
-                achievements: [
-                    "Developed high-performance Apex triggers, LWC interfaces, and automated workflows aligned with business requirements."
-                ]
+                description: "Built scalable custom applications across Sales Cloud, Service Cloud, and Revenue Cloud using Apex, LWC, and Flows."
             }
+        ],
+        highlights: [
+            {
+                title: "High-Throughput Telecom Sync",
+                desc: "Engineered bi-directional data pipelines connecting Salesforce with proprietary telecom billing and network operating engines."
+            },
+            {
+                title: "Salesforce CPQ & Order Management",
+                desc: "Configured complex product rules, pricing logic, and Quote-to-Contract automations for enterprise telecom bundles."
+            }
+        ],
+        achievements: [
+            "Spearheaded technical architecture and deployment for bi-directional data synchronization between Salesforce and proprietary billing systems.",
+            "Served as client technical lead for requirement walkthroughs, solution designs, and production release sign-offs."
         ]
     },
     {
-        company: "Times of Startup India",
-        role: "Software Developer Intern",
-        period: "May 2021 - June 2021",
-        description: "Web development and UX performance improvement.",
+        company: "Early Career Foundations",
+        role: "Engineering Internships",
+        period: "Oct 2020 - June 2021",
+        yearStamp: "2020 - 21",
+        badge: "Foundations",
+        description: "Built foundational engineering capabilities across web development, front-end optimization, and data extraction pipelines.",
+        highlights: [
+            {
+                title: "Times of Startup India (May 2021 - June 2021)",
+                desc: "Software Developer Intern: Contributed to full-stack website development, UX performance optimizations, and bug resolution."
+            },
+            {
+                title: "Kidbea (Oct 2020 - Dec 2020)",
+                desc: "Data Analyst Intern: Data extraction pipelines, data cleaning, and visual stakeholder dashboard analytics."
+            }
+        ],
         achievements: [
-            "Contributed to full-stack website development, performance optimizations, and bug resolution."
-        ]
-    },
-    {
-        company: "Kidbea",
-        role: "Data Analyst Intern",
-        period: "Oct 2020 - Dec 2020",
-        description: "Data extraction, pipeline cleaning, and dashboard analytics.",
-        achievements: [
+            "Contributed to full-stack website development, performance optimizations, and bug resolution.",
             "Analyzed operational trends and built visual stakeholder dashboards to guide business decisions."
         ]
     }

@@ -317,93 +317,64 @@ function buildExperienceSummary(item) {
 
 function renderExperience() {
     const container = document.getElementById('experience-timeline');
-    const mobileContainer = document.getElementById('mobile-experience-timeline');
     if (!container) return;
     container.innerHTML = '';
-    if (mobileContainer) mobileContainer.innerHTML = '';
 
-    experience.forEach((job, i) => {
-        const div = document.createElement('div');
-        div.className = 'timeline-item fade-up';
-
-        let subRolesHtml = '';
-        if (job.subRoles) {
-            subRolesHtml = job.subRoles.map(sub => {
-                const subAch = sub.achievements.map(sa => `<li>${sa}</li>`).join('');
-                return `
-                    <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border);">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
-                            <h4 style="color:var(--text-primary); font-size: 1.1rem;">${sub.role}</h4>
-                            <div class="timeline-period">${sub.period}</div>
-                        </div>
-                        <ul class="timeline-achievements">${subAch}</ul>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        const achievements = job.achievements.map(a => `<li>${a}</li>`).join('');
-
-        div.innerHTML = `
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-                <div class="timeline-header">
-                    <div>
-                        <h3 class="timeline-role">${job.role}</h3>
-                        <div class="timeline-company">${job.company}</div>
-                    </div>
-                    <div class="timeline-period">${job.period}</div>
-                </div>
-                <p class="timeline-desc">${job.description}</p>
-                <ul class="timeline-achievements">${achievements}</ul>
-                ${subRolesHtml}
-            </div>
-        `;
-        container.appendChild(div);
-    });
-
-    if (!mobileContainer) return;
-
-    const mobileEntries = [];
-
-    experience.forEach((job) => {
-        mobileEntries.push({
-            role: job.role,
-            company: job.company,
-            period: job.period,
-            summary: buildExperienceSummary(job)
-        });
-
-        if (Array.isArray(job.subRoles)) {
-            job.subRoles.forEach((subRole) => {
-                mobileEntries.push({
-                    role: subRole.role,
-                    company: job.company,
-                    period: subRole.period,
-                    summary: buildExperienceSummary(subRole)
-                });
-            });
-        }
-    });
-
-    mobileEntries.forEach((entry, i) => {
+    experience.forEach((chapter, i) => {
         const article = document.createElement('article');
-        article.className = 'mobile-exp-item fade-up';
-        article.style.transitionDelay = `${Math.min(i * 0.08, 0.4)}s`;
-        article.innerHTML = `
-            <span class="mobile-exp-marker" aria-hidden="true"></span>
-            <div class="mobile-exp-card">
-                <div class="mobile-exp-top">
-                    <div>
-                        <h3 class="mobile-exp-role">${entry.role}</h3>
-                        <div class="mobile-exp-company">${entry.company}</div>
-                    </div>
-                    <div class="mobile-exp-period">${entry.period}</div>
+        article.className = 'editorial-chapter fade-up';
+        article.style.transitionDelay = `${i * 0.1}s`;
+
+        let highlightsHtml = '';
+        if (chapter.highlights && chapter.highlights.length > 0) {
+            highlightsHtml = `
+                <div class="editorial-highlights">
+                    ${chapter.highlights.map(h => `
+                        <div class="editorial-highlight-card">
+                            <div class="editorial-highlight-title">${h.title}</div>
+                            <div class="editorial-highlight-desc">${h.desc}</div>
+                        </div>
+                    `).join('')}
                 </div>
-                <p class="mobile-exp-summary">${entry.summary}</p>
+            `;
+        }
+
+        let progressionHtml = '';
+        if (chapter.subRoles && chapter.subRoles.length > 0) {
+            progressionHtml = `
+                <div class="editorial-progression-row">
+                    <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-tertiary);">Role Progression</div>
+                    ${chapter.subRoles.map(sub => `
+                        <div class="editorial-prog-step">
+                            <span class="editorial-prog-title">${sub.role}</span>
+                            <span class="editorial-prog-date">${sub.period}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        const badgeClass = chapter.badge === 'Current Chapter' ? 'editorial-badge' : 'editorial-badge subtle';
+        const badgeHtml = chapter.badge ? `<div><span class="${badgeClass}">${chapter.badge}</span></div>` : '';
+
+        article.innerHTML = `
+            <div class="editorial-aside">
+                <div class="editorial-year-stamp">${chapter.yearStamp || ''}</div>
+                <div class="editorial-tenure">${chapter.period}</div>
+                ${badgeHtml}
+            </div>
+            <div class="editorial-body">
+                <div class="editorial-title-row">
+                    <h3 class="editorial-role">${chapter.role}</h3>
+                    <span class="editorial-company">${chapter.company}</span>
+                </div>
+                <p class="editorial-narrative">${chapter.description}</p>
+                ${highlightsHtml}
+                ${progressionHtml}
             </div>
         `;
-        mobileContainer.appendChild(article);
+
+        container.appendChild(article);
     });
 }
 
