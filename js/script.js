@@ -1,4 +1,4 @@
-import { personalInfo, skills, experience, projects, certifications, education, publications, recommendations } from '../data/content.js';
+import { personalInfo, skills, experience, personalProducts, enterpriseProjects, projects, certifications, education, publications, recommendations } from '../data/content.js';
 
 // --- Theme Toggle ---
 const themeToggleBtn = document.getElementById('theme-toggle');
@@ -407,18 +407,99 @@ function renderExperience() {
     });
 }
 
-function renderProjects() {
-    const container = document.getElementById('projects-grid');
+function renderProducts() {
+    const container = document.getElementById('products-grid');
     if (!container) return;
     container.innerHTML = '';
 
-    projects.forEach((proj, i) => {
+    personalProducts.forEach((proj, i) => {
+        const div = document.createElement('div');
+        const isFeatured = !!proj.featured;
+        div.className = `card project-card ${isFeatured ? 'featured-project-card' : ''} fade-up`;
+        div.style.transitionDelay = `${(i % 6) * 0.08}s`;
+
+        // Action links
+        let linksHtml = '';
+        if (proj.links && proj.links.length > 0) {
+            linksHtml = `
+                <div class="project-actions">
+                    ${proj.links.map(link => {
+                        let icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+                        if (link.type === 'chrome') {
+                            icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="21.17" y1="8" x2="12" y2="8"/><line x1="3.95" y1="6.06" x2="8.54" y2="14"/><line x1="10.88" y1="21.94" x2="15.46" y2="14"/></svg>`;
+                        } else if (link.type === 'github') {
+                            icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>`;
+                        }
+                        return `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="btn btn-sm ${isFeatured ? 'btn-primary' : 'btn-outline'} project-link-btn">${icon}<span>${link.label}</span></a>`;
+                    }).join('')}
+                </div>
+            `;
+        }
+
+        // Header brand icon
+        let headerIcon = '';
+        if (proj.icon) {
+            headerIcon = `<img src="${proj.icon}" alt="${proj.title} icon" class="project-brand-icon" loading="lazy" />`;
+        } else {
+            headerIcon = `<div class="featured-sparkle">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+               </div>`;
+        }
+
+        div.innerHTML = `
+            <div class="project-header-row">
+                <div class="project-header-left">
+                    ${headerIcon}
+                    ${proj.category ? `<span class="project-category">${proj.category}</span>` : ''}
+                </div>
+                ${proj.badge ? `<span class="project-badge"><span class="badge-dot"></span>${proj.badge}</span>` : ''}
+            </div>
+            <h3 class="project-title">${proj.title}</h3>
+            <p class="project-desc">${proj.description}</p>
+            ${linksHtml}
+        `;
+        container.appendChild(div);
+    });
+
+    setupMobileScrollIndicators({
+        scroller: container,
+        items: container.querySelectorAll('.project-card'),
+        className: 'products-mobile-indicators'
+    });
+}
+
+function renderEnterpriseProjects() {
+    const container = document.getElementById('enterprise-grid');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const iconMap = {
+        gov: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="21" x2="21" y2="21"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>`,
+        finance: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>`,
+        revenue: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+        ai: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>`,
+        clm: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
+        telecom: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"/></svg>`,
+        integration: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`,
+        devops: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>`
+    };
+
+    enterpriseProjects.forEach((proj, i) => {
         const div = document.createElement('div');
         div.className = 'card project-card fade-up';
-        div.style.transitionDelay = `${i * 0.1}s`;
+        div.style.transitionDelay = `${(i % 6) * 0.08}s`;
+
+        const iconSvg = iconMap[proj.iconType] || `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`;
+
         div.innerHTML = `
-            <div style="margin-bottom: 16px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            <div class="project-header-row">
+                <div class="project-header-left">
+                    <div class="project-icon">
+                        ${iconSvg}
+                    </div>
+                    ${proj.category ? `<span class="project-category">${proj.category}</span>` : ''}
+                </div>
+                ${proj.badge ? `<span class="project-badge enterprise-badge">${proj.badge}</span>` : ''}
             </div>
             <h3 class="project-title">${proj.title}</h3>
             <p class="project-desc">${proj.description}</p>
@@ -429,7 +510,7 @@ function renderProjects() {
     setupMobileScrollIndicators({
         scroller: container,
         items: container.querySelectorAll('.project-card'),
-        className: 'projects-mobile-indicators'
+        className: 'enterprise-mobile-indicators'
     });
 }
 
@@ -742,7 +823,7 @@ function renderFooterSocials() {
 }
 
 // ─────────────────────────────────────────────
-//  Contact Form Handler — Web3Forms integration
+//  Contact Form Handler - Web3Forms integration
 //  Sign up free at https://web3forms.com
 //  Paste your Access Key below (from your dashboard)
 // ─────────────────────────────────────────────
@@ -774,7 +855,7 @@ function handleContactForm() {
             // ── Web3Forms API call ──
             // TODO: Replace 'YOUR_WEB3FORMS_ACCESS_KEY' with your actual key.
             //       Get it free at https://web3forms.com → Create Form → copy the key.
-            //       No backend needed — emails arrive directly to your inbox.
+            //       No backend needed - emails arrive directly to your inbox.
             const res = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -804,7 +885,7 @@ function handleContactForm() {
             }
         } catch (err) {
             // Network or unexpected error
-            showStatus('Unable to send — please try emailing me directly.', 'error');
+            showStatus('Unable to send - please try emailing me directly.', 'error');
             console.error('Contact form error:', err);
         } finally {
             // ── Restore button ──
@@ -878,8 +959,9 @@ document.addEventListener('DOMContentLoaded', () => {
     renderAbout();
     renderSkills();
     renderExperience();
+    renderProducts();
+    renderEnterpriseProjects();
     renderEducation();
-    renderProjects();
     renderPublications();
     renderCertifications();
     renderRecommendations();

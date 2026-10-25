@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- FieldPeek Master Brand Mark: The Unveiled Bracket (Code Syntax / Portal) -->
+  <!-- Left Code Bracket [ -->
+  <path d="M19 10 H13 A3 3 0 0 0 10 13 V35 A3 3 0 0 0 13 38 H19" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Angled Right Bracket / Open Doorway ] (The Peek) -->
+  <path d="M26 8 L39 12 V36 L26 40 Z" fill="#00A1E0" fill-opacity="0.18" stroke="#00A1E0" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Optical Pivot Handle / Aperture -->
+  <circle cx="30" cy="24" r="2" fill="#38BDF8"/>
+</svg>

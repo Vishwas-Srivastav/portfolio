@@ -1,13 +1,18 @@
 export const personalInfo = {
     name: "Vishwas Srivastav",
-    title: "Salesforce Technical Lead",
-    subtitle: "Building enterprise Salesforce solutions across PSS, FSC, CPQ, Revenue Cloud, CLM, and intelligent integrations.",
+    title: "Technical Lead | Enterprise Cloud & Architecture | AI Enablement",
+    subtitle: "Operating at the intersection of enterprise Salesforce architecture, modern software engineering, and applied AI.",
     email: "vishwassrivastavaa@gmail.com",
-    about: `I design and deliver enterprise Salesforce solutions across Public Sector, Banking, Telecommunications, Media, and other complex domains — turning business requirements into scalable, secure, and production-ready platforms.
+    about: `I operate at the intersection of enterprise Salesforce architecture, modern software engineering, and applied AI.
 
-With experience across 8+ enterprise implementations, I’ve worked across Salesforce Industries, CPQ, Revenue Cloud Advanced (RCA), Financial Services Cloud (FSC), Contract Lifecycle Management (CLM), and enterprise integrations spanning identity, collaboration, and operational systems.
+Over the course of my career, I've led 10+ enterprise implementations in complex, regulated environments - delivering Public Sector Solutions (PSS) for sovereign government programs, Financial Services Cloud (FSC) for regional banks, and CPQ / Revenue Cloud Advanced (RCA) across telecommunications and media. My focus is on turning ambiguous, mission-critical requirements into secure, high-throughput architectures that hold up in production.
 
-My focus areas include solution architecture, platform scalability, integrations, delivery leadership, and building systems that balance business flexibility with long-term maintainability.`, socials: [
+Beyond enterprise delivery, I build software and tools that solve real problems for developers and engineering teams. When I see friction in development workflows or complex system metadata, I write software to fix it - whether that's browser extensions like FieldPeek, metadata intelligence utilities, or establishing practical, guardrailed Agentforce and AI adoption patterns.
+
+My engineering leadership centers on Architecture Decision Records (ADRs), rigorous code-review governance, modern agent-assisted developer workflows, and building systems that balance business agility with long-term platform resilience.
+
+Always happy to connect with engineering leaders, architects, and builders working on challenging enterprise problems, developer tooling, or AI enablement.`,
+    socials: [
         {
             name: "LinkedIn",
             url: "https://www.linkedin.com/in/vishwassrivastav",
@@ -27,52 +32,25 @@ My focus areas include solution architecture, platform scalability, integrations
 };
 
 export const skills = {
-    "Salesforce Core": [
-        "Apex", "SOQL", "SOSL", "Triggers",
-        "Lightning Web Components (LWC)", "Aura Components",
-        "Visualforce", "Custom Application Design",
-        "CRM Analytics", "Einstein Features", "AppExchange Solutions"
-    ],
-    "Industries & Specialized Clouds": [
+    "Cloud Architecture & Industries": [
         "Public Sector Solutions (PSS)", "Financial Services Cloud (FSC)",
-        "Salesforce CPQ", "Revenue Cloud / Revenue Cloud Advanced (RCA)",
-        "Contract Lifecycle Management (CLM)",
-        "Sales Cloud", "Service Cloud", "Experience Cloud",
-        "Health Cloud", "Agentforce"
+        "Salesforce CPQ & Revenue Cloud", "Contract Lifecycle Management (CLM)",
+        "Solution Architecture", "OmniStudio"
     ],
-    "Architecture & Design": [
-        "Solution Architecture", "Apex Design Patterns",
-        "Governor Limits & Performance Optimization",
-        "Sharing & Security Architecture", "Integration Patterns",
-        "OmniStudio (OmniScript, FlexCards, DataRaptors)",
-        "Large Data Volume (LDV) Strategies"
+    "Platform Engineering & AI": [
+        "Apex & Design Patterns", "Lightning Web Components (LWC)",
+        "Agentforce", "Prompt Builder", "Data Cloud",
+        "Applied LLMs & Tooling"
     ],
-    "Integrations": [
-        "REST APIs", "SOAP APIs", "OAuth 2.0 / SSO (SAML/OIDC)",
-        "Named Credentials", "Platform Events",
-        "Microsoft 365 Integration", "3CX Telephony",
-        "Dell Boomi", "MuleSoft",
-        "Postman", "Workbench", "Data Loader"
+    "Integrations & Security": [
+        "REST & SOAP APIs", "Event-Driven Architecture",
+        "OAuth 2.0 / SSO", "MuleSoft & Dell Boomi",
+        "3CX Telephony", "Salesforce Shield"
     ],
-    "Process Automation": [
-        "Flows", "Approval Processes", "Validation Rules",
-        "Workflow Automation", "Advanced Reports", "Dynamic Dashboards"
-    ],
-    "AI & Data": [
-        "Agentforce (Specialist Certified)", "Prompt Builder",
-        "Data 360 (formerly Data Cloud)", "AI-Assisted Development",
-        "AI/LLM Tools & Agent Enablement"
-    ],
-    "DevOps & Tools": [
-        "Salesforce DX (SFDX)", "CI/CD Pipelines",
-        "Git / GitHub / Bitbucket",
-        "Copado", "Gearset", "Change Sets",
-        "Jira", "Full-Cycle Project Delivery (SDLC)"
-    ],
-    "Security & Access": [
-        "Security & Access Control", "2FA & Org-Wide Permissions",
-        "Single Sign-On (SSO)", "Salesforce Shield",
-        "Permission Sets & Permission Set Groups"
+    "DevOps & Governance": [
+        "Salesforce DX (SFDX)", "CI/CD (Copado / Gearset)",
+        "Git Version Control", "Architecture Decision Records (ADRs)",
+        "Code Review Governance", "Large Data Volumes (LDV)"
     ]
 };
 
@@ -141,48 +119,37 @@ export const experience = [
         company: "The K Square Group",
         role: "Salesforce Technical Lead",
         period: "April 2025 - Present",
-        description: "Technical Lead on a large-scale Public Sector Solutions (PSS) implementation for a sovereign government client — owning solution architecture, delivery governance, and technical client engagement across major programme modules.",
+        description: "Technical Lead on a sovereign government Public Sector Solutions (PSS) program - directing solution architecture, delivery governance, and multi-cloud engineering.",
         achievements: [
-            "Lead a cross-functional team of Developers, QA, and Design Team — driving technical direction, enforcing code-review standards, mentoring junior engineers, and owning end-to-end delivery across 3–4 major programme modules.",
-            "Own solution design and architecture decisions across the programme — including data model design, sharing and security architecture, automation strategy, and integration patterns.",
-            "Designed and delivered Financial Services Cloud (FSC) solutions for 2–3 Caribbean banking clients — modelling complex customer-lifecycle processes, financial data structures, and role-based access aligned with banking compliance requirements.",
-            "Implemented Contract Lifecycle Management (CLM) workflows aligned with client business rules and multi-stage approval requirements, streamlining contract-cycle handoffs.",
-            "Architected 3CX telephony integration and designed Microsoft 365 + SSO integrations against client-specific security requirements — covering OAuth flows, federated identity, and seamless SSO across third-party applications.",
-            "Serve as the technical client point of contact for requirement walkthroughs, design reviews, and architecture sign-offs."
+            "Lead technical architecture and cross-functional engineering (Dev, QA, BA) across 3-4 core modules on a sovereign national government PSS program.",
+            "Architected and delivered Financial Services Cloud (FSC) and 3CX contact center telephony integration for regional Caribbean banking institutions.",
+            "Drive technical governance, author Architecture Decision Records (ADRs), and enforce strict code-review standards across delivery teams."
         ]
     },
     {
         company: "M&S Consulting",
         role: "Senior Salesforce Developer",
         period: "Dec 2024 - Mar 2025",
-        description: "Led Salesforce development on a high-impact integration project connecting Salesforce with a proprietary billing and network operating system for a US telecommunications client.",
+        description: "Led Salesforce architecture on a high-throughput integration connecting Salesforce with a proprietary billing and network operating engine for a US telecom client.",
         achievements: [
-            "Took ownership of technical design, development, and deployment for bi-directional data sync between Salesforce and a complex third-party billing system.",
-            "Acted as the main technical point of contact for client-side collaboration — trusted for clear communication and delivering quality under tight timelines.",
-            "Translated business requirements into scalable Salesforce solutions using Apex, LWC, Flows, and automation tools.",
-            "Recognized by the client for dedication, ownership, and consistently exceeding delivery expectations."
+            "Spearheaded technical architecture and deployment for bi-directional data synchronization between Salesforce and proprietary billing systems.",
+            "Served as client technical lead for requirement walkthroughs, solution designs, and production release sign-offs."
         ],
         subRoles: [
             {
                 role: "Software Engineer",
                 period: "Dec 2023 - Nov 2024",
-                description: "Delivered Salesforce CPQ and multi-cloud implementations for US telecommunications and media clients.",
+                description: "Delivered Salesforce CPQ product catalogs, Quote-to-Contract automation, and custom Order Management for tier-1 US telecom & media clients.",
                 achievements: [
-                    "Designed and delivered Salesforce CPQ solutions — including end-to-end product catalog design, Product Rules, Price Rules, custom scripts, and Quote-to-Contract automation.",
-                    "Built custom Order Management tool for a tier-1 US telecom client — custom objects, business logic, and Lightning UI for complex order processing.",
-                    "Delivered Dell Boomi integrations on the Salesforce end for a US media and advertising client.",
-                    "Managed full release lifecycle — change-set deployments, environment promotion (Dev → UAT → Prod), version control via Git/Bitbucket."
+                    "Engineered CPQ product rules, pricing logic, and Quote-to-Contract automation for complex enterprise telecom bundles."
                 ]
             },
             {
                 role: "Associate Software Engineer",
                 period: "Nov 2022 - Nov 2023",
-                description: "Built core Salesforce development skills across Sales Cloud, Service Cloud, Revenue Cloud, and Salesforce CPQ.",
+                description: "Built scalable custom applications across Sales Cloud, Service Cloud, and Revenue Cloud using Apex, LWC, and Flows.",
                 achievements: [
-                    "Developed and customized solutions across multiple Salesforce clouds including Sales Cloud, Service Cloud, and Revenue Cloud.",
-                    "Built robust Salesforce CPQ solutions to streamline quoting, pricing, and billing processes.",
-                    "Utilized Apex, Visualforce, and Lightning Web Components to design scalable solutions tailored to business requirements.",
-                    "Collaborated with cross-functional teams to gather requirements, troubleshoot issues, and deliver optimized solutions."
+                    "Developed high-performance Apex triggers, LWC interfaces, and automated workflows aligned with business requirements."
                 ]
             }
         ]
@@ -191,62 +158,207 @@ export const experience = [
         company: "Times of Startup India",
         role: "Software Developer Intern",
         period: "May 2021 - June 2021",
-        description: "Web development and UX improvement.",
+        description: "Web development and UX performance improvement.",
         achievements: [
-            "Contributed to the company's official website development and feature implementation.",
-            "Participated in code reviews and cross-functional design discussions.",
-            "Identified and resolved bugs to enhance platform efficiency and user experience."
+            "Contributed to full-stack website development, performance optimizations, and bug resolution."
         ]
     },
     {
         company: "Kidbea",
         role: "Data Analyst Intern",
         period: "Oct 2020 - Dec 2020",
-        description: "Data gathering, cleaning, and analysis.",
+        description: "Data extraction, pipeline cleaning, and dashboard analytics.",
         achievements: [
-            "Analyzed data to uncover trends supporting business decisions.",
-            "Created visual data representations for stakeholder reporting.",
-            "Prepared reports and presentations summarizing key insights."
+            "Analyzed operational trends and built visual stakeholder dashboards to guide business decisions."
         ]
     }
 ];
 
-export const projects = [
+export const personalProducts = [
     {
-        title: "Public Sector Solutions — Sovereign Government Client",
-        description: "Technical Lead on a large-scale Salesforce Public Sector Solutions (PSS) implementation for a national government client. Responsible for solution architecture, code-review governance, cross-functional team leadership (Developers, QA, BAs), and technical client engagement across major programme modules. Focus areas include citizen case management, constituent engagement, compliance automation, and scalable service delivery within a regulated public-sector environment."
+        title: "FieldPeek for Salesforce",
+        type: "product",
+        category: "Salesforce Developer Tool",
+        badge: "Chrome Extension",
+        featured: true,
+        icon: "images/projects/fieldpeek.svg",
+        description: "Instant field & object API names, 18-digit IDs, and inline SOQL query generation directly within Salesforce Lightning & Classic.",
+        links: [
+            {
+                label: "Chrome Web Store",
+                url: "https://chromewebstore.google.com/detail/fieldpeek-for-salesforce/pdjbflojmldefeaojaocfahcdkmcbhbj?authuser=0&hl=en",
+                type: "chrome"
+            }
+        ]
     },
     {
-        title: "Financial Services Cloud — Caribbean Banking Clients",
-        description: "Architected and delivered Salesforce FSC implementations for multiple Caribbean banking clients — covering Lead Management, Wealth Management, Loan Origination, Case Management, and Contact Centre integration (3CX telephony). Modelled complex customer-lifecycle processes, financial data structures, and role-based access patterns aligned with banking compliance requirements."
+        title: "Unclutter",
+        type: "product",
+        category: "Web Decluttering & Reader Mode",
+        badge: "Chrome Extension",
+        featured: true,
+        icon: "images/projects/unclutter.png",
+        description: "Intelligent Chrome extension with surgical in-place ad/cookie-wall removal and an isolated frosted-glass reader mode.",
+        links: [
+            {
+                label: "Chrome Web Store",
+                url: "https://chromewebstore.google.com/detail/aehnfkklhcnkfkibhlgfdkaifahifepo?utm_source=item-share-cb",
+                type: "chrome"
+            }
+        ]
     },
     {
-        title: "Enterprise CPQ & Revenue Cloud Platform",
-        description: "Designed and delivered end-to-end Salesforce CPQ solutions across multiple US telecommunications clients — including comprehensive product catalog design, Product Rules, Price Rules, custom scripts, Quote-to-Contract automation, and integration frameworks against complex third-party billing systems. Experience extended into Revenue Cloud Advanced (RCA) as the platform's strategic direction."
+        title: "WebScribe AI - Article Summarizer & Markdown Exporter",
+        type: "product",
+        category: "Applied AI & Content Extraction",
+        badge: "Chrome Extension",
+        icon: "images/projects/webscribe.png",
+        description: "Extracts web articles into clean Markdown with multi-provider AI summarization via OpenRouter, Cloudflare, and local Ollama.",
+        links: [
+            {
+                label: "Chrome Web Store",
+                url: "https://chromewebstore.google.com/detail/adflfabkapmonoacolmobdpldhoojpcc?utm_source=item-share-cb",
+                type: "chrome"
+            }
+        ]
     },
     {
-        title: "Contract Lifecycle Management — Industrial Client",
-        description: "Led Salesforce CLM implementation for an industrial-sector client — designing multi-stage approval workflows, contract templates, clause libraries, and automated handoffs aligned with client business rules and compliance requirements."
+        title: "SonicField",
+        type: "product",
+        category: "Acoustic Intelligence & DSP",
+        badge: "Open Source",
+        icon: "images/projects/sonicfield.svg",
+        description: "Native macOS framework for 360° spatial sound localization and acoustic field detection on Apple Silicon hardware.",
+        links: [
+            {
+                label: "GitHub Repository",
+                url: "https://github.com/Vishwas-Srivastav/SonicField",
+                type: "github"
+            }
+        ]
     },
     {
-        title: "Order Management Platform — Tier-1 US Telecom",
-        description: "Built a custom Order Management tool handling complex order processing for a tier-1 US telecommunications client — designing custom objects, business logic, and Lightning UI integrated with existing Salesforce processes to manage intricate order pipelines at scale."
+        title: "TapSphere",
+        type: "product",
+        category: "macOS Productivity Daemon",
+        badge: "Open Source",
+        icon: "images/projects/tapsphere.svg",
+        description: "macOS background menu bar daemon converting physical desk taps around your MacBook into instant productivity shortcuts.",
+        links: [
+            {
+                label: "GitHub Repository",
+                url: "https://github.com/Vishwas-Srivastav/TapSphere",
+                type: "github"
+            }
+        ]
     },
     {
-        title: "Enterprise Integration Frameworks",
-        description: "Engineered scalable integration frameworks connecting Salesforce with complex third-party billing, network operating, and core banking systems — ensuring reliable bi-directional data synchronization, error handling, retry logic, and idempotency across enterprise environments. Technologies: REST/SOAP APIs, OAuth 2.0, Named Credentials, Platform Events, Dell Boomi, Microsoft 365, 3CX Telephony, SSO (SAML/OIDC)."
+        title: "SVG Lens",
+        type: "product",
+        category: "Vector Graphics & DOM Inspection",
+        badge: "Open Source",
+        icon: "images/projects/svg-lens.svg",
+        description: "Minimal browser-based SVG inspector featuring visual-to-code synchronized element selection and live coordinate overlays.",
+        links: [
+            {
+                label: "Live Playground",
+                url: "https://vishwas-srivastav.github.io/SVG-Lens/",
+                type: "external"
+            },
+            {
+                label: "GitHub",
+                url: "https://github.com/Vishwas-Srivastav/SVG-Lens",
+                type: "github"
+            }
+        ]
     },
     {
-        title: "DevOps, Deployment & Release Management",
-        description: "Managed CI/CD pipelines and release processes across multiple Salesforce environments using Copado, Gearset, Salesforce DX, and Git — ensuring reliable deployments, branching-model discipline, automated test gates, and compliance with enterprise change management standards."
-    },
-    {
-        title: "Enterprise Automation & Governance",
-        description: "Designed comprehensive Salesforce automation strategies using Flows, validation frameworks, and approval processes — balancing business flexibility with governance, maintainability, and long-term platform scalability across multi-cloud enterprise implementations."
+        title: "StateForge",
+        type: "product",
+        category: "Git-Native AI Engineering",
+        badge: "Open Source",
+        icon: "images/projects/stateforge.svg",
+        description: "Git-native persistent project state engine solving context loss for AI coding agents without vector database bloat.",
+        links: [
+            {
+                label: "GitHub Repository",
+                url: "https://github.com/Vishwas-Srivastav/StateForge",
+                type: "github"
+            }
+        ]
     }
 ];
 
-// publications and recommendations are unchanged — kept exactly as original
+export const enterpriseProjects = [
+    {
+        title: "Public Sector Solutions - Sovereign Government Client",
+        type: "enterprise",
+        category: "Government & Regulated Platforms",
+        badge: "Client Engagement",
+        iconType: "gov",
+        description: "Large-scale public sector architecture delivering citizen case management, constituent engagement, and compliance automation."
+    },
+    {
+        title: "Financial Services Cloud - Caribbean Banking Clients",
+        type: "enterprise",
+        category: "Banking & Financial Services",
+        badge: "Client Engagement",
+        iconType: "finance",
+        description: "Architected FSC Lead Management, Wealth, Loan Origination, and 3CX contact center integration aligned with regional banking compliance."
+    },
+    {
+        title: "Enterprise CPQ & Revenue Cloud Advanced Platform",
+        type: "enterprise",
+        category: "Revenue Operations & CPQ",
+        badge: "Client Engagement",
+        iconType: "revenue",
+        description: "End-to-end Salesforce CPQ and RCA implementation with complex product/price rules, Quote-to-Contract automation, and billing engine sync."
+    },
+    {
+        title: "Applied AI & Agentforce Enablement",
+        type: "enterprise",
+        category: "AI & Autonomous Systems",
+        badge: "Client Engagement",
+        iconType: "ai",
+        description: "Enterprise Agentforce implementations featuring custom Agent actions, Prompt Builder templates, safety guardrails, and agentic retrieval pipelines."
+    },
+    {
+        title: "Contract Lifecycle Management - Industrial Enterprise",
+        type: "enterprise",
+        category: "CLM & Workflow Governance",
+        badge: "Client Engagement",
+        iconType: "clm",
+        description: "Streamlined contract workflows with multi-stage approvals, clause libraries, document generation, and compliance automation."
+    },
+    {
+        title: "Custom Order Management Platform - Tier-1 US Telecom",
+        type: "enterprise",
+        category: "Custom Platform Engineering",
+        badge: "Client Engagement",
+        iconType: "telecom",
+        description: "High-throughput custom Order Management platform and Lightning Web Components processing complex enterprise telecom order pipelines at scale."
+    },
+    {
+        title: "Enterprise Integration Frameworks & Middleware",
+        type: "enterprise",
+        category: "Integrations & Middleware",
+        badge: "Client Engagement",
+        iconType: "integration",
+        description: "Robust bi-directional integration frameworks connecting Salesforce with core billing, banking, and telephony systems via REST/SOAP and middleware."
+    },
+    {
+        title: "DevOps, CI/CD & Architecture Governance",
+        type: "enterprise",
+        category: "DevOps & Engineering Standards",
+        badge: "Client Engagement",
+        iconType: "devops",
+        description: "Automated deployment pipelines and architecture governance using Copado, Gearset, SFDX, and Architecture Decision Records (ADRs)."
+    }
+];
+
+export const projects = [...personalProducts, ...enterpriseProjects];
+
+// publications and recommendations are unchanged - kept exactly as original
 export const publications = [
     {
         title: "Decentralised E-Voting System Implementation Based on Blockchain Technology",
@@ -263,7 +375,7 @@ export const recommendations = [
         company: "M&S Consulting",
         image: "https://ui-avatars.com/api/?name=Casey+Zaitz&background=random",
         linkedin: "https://www.linkedin.com/in/casey-zaitz",
-        text: "Working with Vishwas was always a pleasure. He has a strong ability to interpret business requirements and translate them into effective Salesforce solutions. Vishwas consistently applies best practices and ensures his project team does the same, setting a high standard for quality and consistency. He's professional, personable, and incredibly easy to work with—an asset to any team."
+        text: "Working with Vishwas was always a pleasure. He has a strong ability to interpret business requirements and translate them into effective Salesforce solutions. Vishwas consistently applies best practices and ensures his project team does the same, setting a high standard for quality and consistency. He's professional, personable, and incredibly easy to work with - an asset to any team."
     },
     {
         name: "Snehal Vashi",
@@ -311,6 +423,6 @@ export const recommendations = [
         company: "M&S Consulting",
         image: "https://ui-avatars.com/api/?name=Prasunn+Kumar&background=random",
         linkedin: "https://www.linkedin.com/in/prasunn-kumar-rai-238b211a4",
-        text: "I had the pleasure of working with Vishwas on several projects, and I can confidently say that he is one of the most talented Salesforce Developers I've met. His technical prowess is outstanding – no matter how complex the problem, Vishwas can design a solution in minutes... Vishwas is truly an asset to any team, and I highly recommend him!"
+        text: "I had the pleasure of working with Vishwas on several projects, and I can confidently say that he is one of the most talented Salesforce Developers I've met. His technical prowess is outstanding - no matter how complex the problem, Vishwas can design a solution in minutes... Vishwas is truly an asset to any team, and I highly recommend him!"
     }
 ];

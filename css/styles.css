@@ -516,6 +516,8 @@ p {
 }
 
 .projects-grid,
+.products-grid,
+.enterprise-grid,
 .cert-grid,
 .education-grid {
     display: grid;
@@ -525,8 +527,8 @@ p {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
 /* Premium Cards */
@@ -565,18 +567,116 @@ p {
 .project-card {
     display: flex;
     flex-direction: column;
+    padding: 26px;
+}
+
+.project-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.project-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.project-brand-icon {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface-hover);
+    padding: 4px;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.project-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.project-category {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-tertiary);
+}
+
+.project-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 26%, transparent);
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
 }
 
 .project-title {
-    font-size: 1.25rem;
+    font-size: 1.18rem;
     color: var(--text-primary);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    line-height: 1.35;
 }
 
 .project-desc {
-    font-size: 0.95rem;
-    margin-bottom: 24px;
+    font-size: 0.92rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: var(--text-secondary);
     flex-grow: 1;
+}
+
+.project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 4px;
+}
+
+.project-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    padding: 10px 18px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-smooth);
+}
+
+.project-link-btn:active {
+    transform: scale(0.97);
 }
 
 .project-tags {
@@ -901,7 +1001,7 @@ p {
     }
 }
 
-/* Social links column — keep your existing .social-link styles,
+/* Social links column - keep your existing .social-link styles,
    just stack them vertically */
 .contact-links-col {
     display: flex;
@@ -1670,6 +1770,8 @@ body.menu-open {
     .skills-pills,
     .skills-mobile-track,
     .projects-grid,
+    .products-grid,
+    .enterprise-grid,
     .cert-grid,
     .carousel-viewport {
         scrollbar-width: none;
@@ -1679,6 +1781,8 @@ body.menu-open {
     .skills-pills::-webkit-scrollbar,
     .skills-mobile-track::-webkit-scrollbar,
     .projects-grid::-webkit-scrollbar,
+    .products-grid::-webkit-scrollbar,
+    .enterprise-grid::-webkit-scrollbar,
     .cert-grid::-webkit-scrollbar,
     .carousel-viewport::-webkit-scrollbar {
         display: none;
@@ -1899,7 +2003,9 @@ body.menu-open {
         letter-spacing: 0.02em;
     }
 
-    .projects-grid {
+    .projects-grid,
+    .products-grid,
+    .enterprise-grid {
         display: flex;
         gap: 14px;
         overflow-x: auto;
@@ -1908,7 +2014,9 @@ body.menu-open {
         margin-right: 0;
     }
 
-    .projects-grid > .project-card {
+    .projects-grid > .project-card,
+    .products-grid > .project-card,
+    .enterprise-grid > .project-card {
         min-width: 100%;
         flex: 0 0 100%;
         scroll-snap-align: start;
