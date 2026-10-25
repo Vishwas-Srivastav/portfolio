@@ -439,12 +439,12 @@ p {
 }
 
 .image-frame {
-    width: clamp(260px, 35vw, 360px);
-    height: clamp(260px, 35vw, 360px);
+    width: clamp(320px, 32vw, 440px);
+    height: clamp(320px, 32vw, 440px);
     border-radius: 50%;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 0 0 2px var(--bg-body), 0 0 0 4px var(--accent), var(--shadow-lg);
+    box-shadow: 0 0 0 3px var(--bg-body), 0 0 0 5px var(--accent), 0 24px 60px rgba(0, 0, 0, 0.45);
     border: none;
     margin: 0 auto;
 }
@@ -1253,9 +1253,9 @@ footer {
     }
 
     .image-frame {
-        width: 100%;
-        max-width: 350px;
-        height: 400px;
+        width: clamp(280px, 45vw, 360px);
+        height: clamp(280px, 45vw, 360px);
+        max-width: 360px;
     }
 
     .status-badge {
@@ -1533,8 +1533,8 @@ body.menu-open {
     }
 
     .image-frame {
-        width: 104px;
-        height: 104px;
+        width: 120px;
+        height: 120px;
         max-width: none;
         border-radius: 50%;
         box-shadow: 0 18px 40px rgba(8, 10, 24, 0.34), 0 0 0 2px rgba(255, 255, 255, 0.08), 0 0 0 5px color-mix(in srgb, var(--accent) 20%, transparent);
