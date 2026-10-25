@@ -1,16 +1,21 @@
 :root {
-    /* Light Theme Palette - Premium & Clean */
-    --bg-body: #ffffff;
-    --bg-surface: #fdfdfd;
-    --bg-surface-hover: #f3f4f6;
+    /* Light Theme Palette - Clean Slate with Subtle Deep Blue Undertone */
+    --bg-body: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-surface-hover: #f1f5f9;
 
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --text-tertiary: #94a3b8;
 
-    --accent: #d97706;
-    --accent-dark: #b45309;
-    --accent-glow: rgba(217, 119, 6, 0.15);
+    --accent: #2563eb;
+    --accent-dark: #1e3a8a;
+    --accent-glow: rgba(37, 99, 235, 0.15);
+
+    /* Warm Champagne / Gold Accent for luxury highlights */
+    --accent-gold: #d97706;
+    --accent-gold-glow: rgba(217, 119, 6, 0.18);
+    --accent-gold-light: #b45309;
 
     --border: #e2e8f0;
     --border-hover: #cbd5e1;
@@ -25,35 +30,40 @@
 
     --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
-    --shadow-glow: 0 0 20px rgba(0, 0, 0, 0.03);
+    --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.06);
 
     --font-main: 'Inter', system-ui, -apple-system, sans-serif;
     --transition-smooth: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 [data-theme="dark"] {
-    /* Dark Theme Palette - Deep & Warm Champagne Gold */
-    --bg-body: #09090b; /* Zinc 950 */
-    --bg-surface: #18181b; /* Zinc 900 */
-    --bg-surface-hover: #27272a; /* Zinc 800 */
+    /* Dark Theme Palette - Deep Midnight Blue & Sleek Accents */
+    --bg-body: #070b14; /* Deep nocturnal midnight blue */
+    --bg-surface: #0e1526; /* Deep navy-slate surface */
+    --bg-surface-hover: #162036; /* Elevated navy-slate */
 
-    --text-primary: #fafafa;
-    --text-secondary: #a1a1aa;
-    --text-tertiary: #52525b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-tertiary: #64748b;
 
-    --accent: #f59e0b; 
-    --accent-dark: #fbbf24;
-    --accent-glow: rgba(245, 158, 11, 0.2);
+    --accent: #3b82f6; 
+    --accent-dark: #60a5fa;
+    --accent-glow: rgba(59, 130, 246, 0.22);
 
-    --border: rgba(255, 255, 255, 0.08);
-    --border-hover: rgba(255, 255, 255, 0.15);
+    /* Warm Champagne / Gold Accent for luxury highlights */
+    --accent-gold: #f59e0b;
+    --accent-gold-glow: rgba(245, 158, 11, 0.22);
+    --accent-gold-light: #fbbf24;
 
-    --glass-bg: rgba(9, 9, 11, 0.75);
-    --glass-border: rgba(255, 255, 255, 0.05);
+    --border: rgba(59, 130, 246, 0.12);
+    --border-hover: rgba(59, 130, 246, 0.28);
 
-    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
-    --shadow-glow: 0 0 30px rgba(245, 158, 11, 0.1);
+    --glass-bg: rgba(7, 11, 20, 0.8);
+    --glass-border: rgba(59, 130, 246, 0.12);
+
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.35), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 10px 20px -3px rgba(3, 7, 18, 0.5), 0 4px 6px -2px rgba(3, 7, 18, 0.3);
+    --shadow-glow: 0 0 35px rgba(59, 130, 246, 0.18);
 }
 
 /* Base & Reset */
@@ -89,10 +99,11 @@ body {
     height: 100vh;
     z-index: -1;
     pointer-events: none;
-    background: radial-gradient(circle at 15% 50%, var(--accent-glow), transparent 30%),
-                radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.05), transparent 30%);
+    background: radial-gradient(circle at 18% 30%, rgba(37, 99, 235, 0.14), transparent 45%),
+                radial-gradient(circle at 82% 70%, rgba(30, 58, 138, 0.18), transparent 50%),
+                radial-gradient(circle at 50% 15%, rgba(59, 130, 246, 0.1), transparent 40%);
     filter: blur(80px);
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 /* Custom Cursor - Refined */
@@ -761,18 +772,33 @@ p {
     width: fit-content;
     font-size: 0.68rem;
     font-weight: 700;
-    padding: 3px 8px;
+    padding: 3px 9px;
     border-radius: var(--radius-full);
     background: var(--accent);
-    color: #0c0d0e;
-    letter-spacing: 0.04em;
+    color: #ffffff;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
+}
+
+.editorial-badge.gold {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #0c0d0e;
+    font-weight: 800;
+    box-shadow: 0 2px 10px rgba(245, 158, 11, 0.28);
 }
 
 .editorial-badge.subtle {
     background: var(--bg-surface-hover);
-    color: var(--accent);
-    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+}
+
+.editorial-chapter.active-chapter .editorial-year-stamp {
+    background: linear-gradient(135deg, var(--text-primary) 35%, #fbbf24 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 .editorial-body {
@@ -827,6 +853,10 @@ p {
     transform: translateY(-2px);
 }
 
+.editorial-chapter.active-chapter .editorial-highlight-card:first-child {
+    border-color: color-mix(in srgb, var(--accent-gold) 40%, var(--border));
+}
+
 .editorial-highlight-title {
     font-size: 0.8rem;
     font-weight: 700;
@@ -834,6 +864,10 @@ p {
     letter-spacing: 0.05em;
     color: var(--accent);
     margin-bottom: 6px;
+}
+
+.editorial-chapter.active-chapter .editorial-highlight-card:first-child .editorial-highlight-title {
+    color: var(--accent-gold);
 }
 
 .editorial-highlight-desc {
