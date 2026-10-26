@@ -1,4 +1,41 @@
 :root {
+    /* Dark Theme Palette by Default - Deep & Sleek */
+    --bg-body: #09090b; /* Zinc 950 */
+    --bg-surface: #18181b; /* Zinc 900 */
+    --bg-surface-hover: #27272a; /* Zinc 800 */
+
+    --text-primary: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-tertiary: #52525b;
+
+    --accent: #3b82f6; 
+    --accent-dark: #60a5fa;
+    --accent-glow: rgba(59, 130, 246, 0.2);
+
+    /* Warm Champagne / Gold Accent for luxury highlights */
+    --accent-gold: #f59e0b;
+    --accent-gold-glow: rgba(245, 158, 11, 0.2);
+
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.15);
+
+    --glass-bg: rgba(9, 9, 11, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.05);
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+    --shadow-glow: 0 0 30px rgba(59, 130, 246, 0.1);
+
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+    --transition-smooth: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+[data-theme="light"] {
     /* Light Theme Palette - Premium & Clean */
     --bg-body: #ffffff;
     --bg-surface: #fdfdfd;
@@ -22,24 +59,16 @@
     --glass-bg: rgba(255, 255, 255, 0.75);
     --glass-border: rgba(255, 255, 255, 0.3);
 
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
-    --radius-full: 9999px;
-
     --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
     --shadow-glow: 0 0 20px rgba(0, 0, 0, 0.03);
-
-    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-    --transition-smooth: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 [data-theme="dark"] {
-    /* Dark Theme Palette - Deep & Sleek */
-    --bg-body: #09090b; /* Zinc 950 */
-    --bg-surface: #18181b; /* Zinc 900 */
-    --bg-surface-hover: #27272a; /* Zinc 800 */
+    /* Explicit Dark Theme Selector */
+    --bg-body: #09090b;
+    --bg-surface: #18181b;
+    --bg-surface-hover: #27272a;
 
     --text-primary: #fafafa;
     --text-secondary: #a1a1aa;
@@ -49,7 +78,6 @@
     --accent-dark: #60a5fa;
     --accent-glow: rgba(59, 130, 246, 0.2);
 
-    /* Warm Champagne / Gold Accent for luxury highlights */
     --accent-gold: #f59e0b;
     --accent-gold-glow: rgba(245, 158, 11, 0.2);
 
@@ -2046,8 +2074,7 @@ body.menu-open {
     .projects-grid,
     .products-grid,
     .enterprise-grid,
-    .cert-grid,
-    #publications-grid {
+    .cert-grid {
         display: flex;
         gap: 14px;
         overflow-x: auto;
@@ -2063,15 +2090,13 @@ body.menu-open {
     .projects-grid::-webkit-scrollbar,
     .products-grid::-webkit-scrollbar,
     .enterprise-grid::-webkit-scrollbar,
-    .cert-grid::-webkit-scrollbar,
-    #publications-grid::-webkit-scrollbar {
+    .cert-grid::-webkit-scrollbar {
         display: none;
     }
 
     .projects-grid > .project-card,
     .products-grid > .project-card,
-    .enterprise-grid > .project-card,
-    #publications-grid > .publication-card {
+    .enterprise-grid > .project-card {
         min-width: 86%;
         flex: 0 0 86%;
         scroll-snap-align: center;
@@ -2084,6 +2109,43 @@ body.menu-open {
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.06);
         transition: transform 0.15s ease;
         box-sizing: border-box;
+    }
+
+    /* Publications - Full Width Card */
+    #publications-grid {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: visible;
+    }
+
+    #publications-grid > .publication-card {
+        width: 100%;
+        min-width: 100%;
+        flex: none;
+        border-radius: 24px;
+        padding: 24px 20px;
+        background: color-mix(in srgb, var(--bg-surface) 86%, transparent);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        min-height: auto;
+    }
+
+    #publications-grid > .publication-card .btn {
+        margin-top: 18px;
+        align-self: flex-start;
+        border-radius: 9999px;
+    }
+
+    .publications-mobile-indicators {
+        display: none !important;
     }
 
     .projects-grid > .project-card:active,
@@ -2207,7 +2269,14 @@ body.menu-open {
         padding-bottom: 24px;
     }
 
+    #recommendations .carousel-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
     #recommendations .carousel-viewport {
+        width: 100%;
         overflow: hidden !important;
         padding: 6px 0 0 !important;
         border-radius: 0 !important;
@@ -2235,12 +2304,15 @@ body.menu-open {
         min-width: 100%;
         width: 100%;
         scroll-snap-align: start;
+        padding: 0 !important;
+        box-sizing: border-box;
     }
 
     #recommendations .carousel-item .card {
         width: 100%;
+        max-width: 100%;
         border-radius: 24px;
-        padding: 24px 22px;
+        padding: 24px 20px;
         background: color-mix(in srgb, var(--bg-surface) 88%, transparent);
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
