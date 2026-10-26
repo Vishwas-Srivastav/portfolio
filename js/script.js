@@ -175,7 +175,30 @@ function setupMobileScrollIndicators({ scroller, items, className, onActiveChang
 function renderAbout() {
     const container = document.querySelector('.about-content');
     if (!container) return;
-    container.innerHTML = personalInfo.about.split('\n\n').map(p => `<p style="margin-bottom: 20px;">${p}</p>`).join('');
+    const paragraphs = personalInfo.about.split('\n\n');
+    const introParagraphs = paragraphs.slice(0, 2).map(p => `<p style="margin-bottom: 20px;">${p}</p>`).join('');
+    const extraParagraphs = paragraphs.slice(2).map(p => `<p style="margin-bottom: 20px;">${p}</p>`).join('');
+
+    container.innerHTML = `
+        ${introParagraphs}
+        <div class="about-more-wrapper">${extraParagraphs}</div>
+        <button type="button" class="about-toggle-btn" aria-expanded="false">
+            <span class="about-toggle-label">Read Full Bio</span>
+            <svg class="about-toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+    `;
+
+    const toggleBtn = container.querySelector('.about-toggle-btn');
+    const moreWrapper = container.querySelector('.about-more-wrapper');
+    if (toggleBtn && moreWrapper) {
+        toggleBtn.addEventListener('click', () => {
+            const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+            toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+            moreWrapper.classList.toggle('is-open', !isExpanded);
+            toggleBtn.querySelector('.about-toggle-label').textContent = !isExpanded ? 'Show Less' : 'Read Full Bio';
+            toggleBtn.querySelector('.about-toggle-icon').style.transform = !isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+    }
 }
 
 function renderCertifications() {
