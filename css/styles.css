@@ -1618,7 +1618,7 @@ body.menu-open {
         height: 100%;
         object-fit: cover;
         object-position: top center;
-        transform: scale(1.65) translateY(-3%);
+        transform: scale(1.65) translate(4%, -6%);
         transform-origin: top center;
     }
 
