@@ -1601,9 +1601,9 @@ body.menu-open {
     }
 
     .image-frame {
-        width: 140px;
-        height: 140px;
-        max-width: 140px;
+        width: 165px;
+        height: 165px;
+        max-width: 165px;
         border-radius: 50%;
         overflow: hidden;
         box-shadow: none;
@@ -1618,7 +1618,7 @@ body.menu-open {
         height: 100%;
         object-fit: cover;
         object-position: top center;
-        transform: scale(1.35) translateY(-4%);
+        transform: scale(1.65) translateY(-3%);
         transform-origin: top center;
     }
 
