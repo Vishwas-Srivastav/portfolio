@@ -1591,7 +1591,7 @@ body.menu-open {
         position: relative;
         top: auto;
         right: auto;
-        margin: 18px auto 16px;
+        margin: 6px auto 4px;
         z-index: 1;
     }
 
